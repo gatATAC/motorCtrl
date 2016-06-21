@@ -67,18 +67,18 @@
           </property>
         </object>
         <object type="umlSubStateItem">
-          <property name="id" type="long">3</property>
-          <property name="relative_position" type="realpoint">485.000000,290.000000</property>
+          <property name="id" type="long">27</property>
+          <property name="relative_position" type="realpoint">350.000000,270.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSCHSubDiagramElementItem">
               <property name="id" type="long">0</property>
-              <property name="name" type="string">fastBwCycle</property>
+              <property name="name" type="string">DirChange</property>
               <property name="description" type="string">Diagram element's description...</property>
               <property name="subdiagram" type="serializabledynamicnocreate">
                 <object type="udSStateChartDiagramItem">
                   <property name="id" type="long">-1</property>
-                  <property name="name" type="string">fastBwCycle</property>
-                  <property name="description" type="string">Increasing light cycle</property>
+                  <property name="name" type="string">DirChange</property>
+                  <property name="description" type="string">Diagram's description...</property>
                   <property name="diagram_type" type="string">State Chart</property>
                   <property name="generate_code" type="bool">1</property>
                   <property name="output_file" type="string">&lt;default&gt;</property>
@@ -90,7 +90,7 @@
                   <diagram>
                     <object type="umlInitialItem">
                       <property name="id" type="long">1</property>
-                      <property name="relative_position" type="realpoint">263.000000,60.000000</property>
+                      <property name="relative_position" type="realpoint">120.000000,30.000000</property>
                       <property name="user_data" type="serializabledynamic">
                         <object type="udInitialElementItem">
                           <property name="id" type="long">0</property>
@@ -110,50 +110,48 @@
                         </object>
                       </property>
                     </object>
-                    <object type="umlFinalItem">
+                    <object type="umlTransitionItem">
                       <property name="id" type="long">3</property>
-                      <property name="relative_position" type="realpoint">783.000000,200.000000</property>
+                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
-                        <object type="udFinalElementItem">
+                        <object type="udTransElementItem">
                           <property name="id" type="long">0</property>
-                          <property name="name" type="string">Final</property>
-                          <property name="description" type="string">Diagram element's description...</property>
+                          <property name="name" type="string">Transition connection</property>
+                          <property name="description" type="string">Transition's description...</property>
+                          <object type="udActionLinkItem">
+                            <property name="id" type="long">-1</property>
+                            <property name="name" type="string">resetWaitTime</property>
+                            <property name="description" type="string">Link description...</property>
+                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
+                            <property name="scope" type="string">&lt;global&gt;</property>
+                            <property name="call_parameters" type="mapstring">
+                              <item key="timerVar">dre.pwm_wait_timer</item>
+                            </property>
+                          </object>
+                          <object type="udActionLinkItem">
+                            <property name="id" type="long">-1</property>
+                            <property name="name" type="string">shutDownPwm</property>
+                            <property name="description" type="string">Link description...</property>
+                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwm#8</property>
+                            <property name="scope" type="string">&lt;global&gt;</property>
+                          </object>
                         </object>
                       </property>
-                      <property name="size" type="realpoint">20.000000,20.000000</property>
-                      <property name="title" type="serializabledynamicnocreate">
+                      <property name="source" type="long">1</property>
+                      <property name="target" type="long">7</property>
+                      <property name="target_offset" type="realpoint">0.300000,0.400000</property>
+                      <property name="label" type="serializabledynamicnocreate">
                         <object type="uddLabelElement">
                           <property name="id" type="long">4</property>
-                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                          <property name="size" type="realpoint">27.000000,15.000000</property>
-                          <property name="text" type="string">Final</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">5</property>
-                      <property name="relative_position" type="realpoint">403.000000,300.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Wait</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">6</property>
-                          <property name="relative_position" type="realpoint">38.000000,5.000000</property>
-                          <property name="size" type="realpoint">25.000000,15.000000</property>
-                          <property name="text" type="string">Wait</property>
-                          <property name="label_type" type="int">1</property>
+                          <property name="relative_position" type="realpoint">-178.000000,-7.000000</property>
+                          <property name="size" type="realpoint">347.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt;  / [resetWaitTime(dre.pwm_wait_timer), shutDownPwm()] &gt;&gt;</property>
+                          <property name="label_type" type="int">3</property>
                         </object>
                       </property>
                     </object>
                     <object type="umlTransitionItem">
-                      <property name="id" type="long">7</property>
+                      <property name="id" type="long">5</property>
                       <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
                         <object type="udTransElementItem">
@@ -172,24 +170,87 @@
                           </object>
                         </object>
                       </property>
-                      <property name="source" type="long">5</property>
-                      <property name="target" type="long">5</property>
+                      <property name="source" type="long">7</property>
+                      <property name="target" type="long">7</property>
                       <property name="control_points" type="listrealpoint">
-                        <item>433.000000,430.000000</item>
-                        <item>393.000000,420.000000</item>
+                        <item>450.000000,150.000000</item>
+                        <item>510.000000,70.000000</item>
                       </property>
                       <property name="label" type="serializabledynamicnocreate">
                         <object type="uddLabelElement">
-                          <property name="id" type="long">8</property>
-                          <property name="relative_position" type="realpoint">-138.000000,-37.000000</property>
+                          <property name="id" type="long">6</property>
+                          <property name="relative_position" type="realpoint">-42.000000,-57.000000</property>
                           <property name="size" type="realpoint">256.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt;  / [incrementTimer(dre.pwm_wait_timer)] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
                     </object>
-                    <object type="umlTransitionItem">
+                    <object type="umlSimpleStateItem">
+                      <property name="id" type="long">7</property>
+                      <property name="relative_position" type="realpoint">240.000000,120.000000</property>
+                      <property name="user_data" type="serializabledynamic">
+                        <object type="udSimpleStateElementItem">
+                          <property name="id" type="long">0</property>
+                          <property name="name" type="string">Waitbefore</property>
+                          <property name="description" type="string">Diagram element's description...</property>
+                        </object>
+                      </property>
+                      <property name="fill" type="brush">254,253,211,255 100</property>
+                      <property name="title" type="serializabledynamicnocreate">
+                        <object type="uddLabelElement">
+                          <property name="id" type="long">8</property>
+                          <property name="relative_position" type="realpoint">21.000000,5.000000</property>
+                          <property name="size" type="realpoint">59.000000,15.000000</property>
+                          <property name="text" type="string">Waitbefore</property>
+                          <property name="label_type" type="int">1</property>
+                        </object>
+                      </property>
+                    </object>
+                    <object type="umlFinalItem">
                       <property name="id" type="long">9</property>
+                      <property name="relative_position" type="realpoint">570.000000,370.000000</property>
+                      <property name="user_data" type="serializabledynamic">
+                        <object type="udFinalElementItem">
+                          <property name="id" type="long">0</property>
+                          <property name="name" type="string">Final</property>
+                          <property name="description" type="string">Diagram element's description...</property>
+                        </object>
+                      </property>
+                      <property name="size" type="realpoint">20.000000,20.000000</property>
+                      <property name="title" type="serializabledynamicnocreate">
+                        <object type="uddLabelElement">
+                          <property name="id" type="long">10</property>
+                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
+                          <property name="size" type="realpoint">27.000000,15.000000</property>
+                          <property name="text" type="string">Final</property>
+                          <property name="label_type" type="int">1</property>
+                        </object>
+                      </property>
+                    </object>
+                    <object type="umlSimpleStateItem">
+                      <property name="id" type="long">11</property>
+                      <property name="relative_position" type="realpoint">320.000000,260.000000</property>
+                      <property name="user_data" type="serializabledynamic">
+                        <object type="udSimpleStateElementItem">
+                          <property name="id" type="long">0</property>
+                          <property name="name" type="string">WaitAfter</property>
+                          <property name="description" type="string">Diagram element's description...</property>
+                        </object>
+                      </property>
+                      <property name="fill" type="brush">254,253,211,255 100</property>
+                      <property name="title" type="serializabledynamicnocreate">
+                        <object type="uddLabelElement">
+                          <property name="id" type="long">12</property>
+                          <property name="relative_position" type="realpoint">26.000000,5.000000</property>
+                          <property name="size" type="realpoint">49.000000,15.000000</property>
+                          <property name="text" type="string">WaitAfter</property>
+                          <property name="label_type" type="int">1</property>
+                        </object>
+                      </property>
+                    </object>
+                    <object type="umlTransitionItem">
+                      <property name="id" type="long">13</property>
                       <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
                         <object type="udTransElementItem">
@@ -198,9 +259,9 @@
                           <property name="description" type="string">Transition's description...</property>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">resetWaitTime</property>
+                            <property name="name" type="string">incrementTimer</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
+                            <property name="original_code" type="string">&lt;global&gt;::incrementTimer#41&lt;timerVar:uint32_t&gt;</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                             <property name="call_parameters" type="mapstring">
                               <item key="timerVar">dre.pwm_wait_timer</item>
@@ -208,29 +269,30 @@
                           </object>
                         </object>
                       </property>
-                      <property name="source" type="long">13</property>
-                      <property name="target" type="long">5</property>
+                      <property name="source" type="long">11</property>
+                      <property name="target" type="long">11</property>
                       <property name="control_points" type="listrealpoint">
-                        <item>583.000000,270.000000</item>
+                        <item>280.000000,390.000000</item>
+                        <item>160.000000,340.000000</item>
                       </property>
                       <property name="label" type="serializabledynamicnocreate">
                         <object type="uddLabelElement">
-                          <property name="id" type="long">10</property>
-                          <property name="relative_position" type="realpoint">-84.000000,-7.000000</property>
-                          <property name="size" type="realpoint">249.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [resetWaitTime(dre.pwm_wait_timer)] &gt;&gt;</property>
+                          <property name="id" type="long">14</property>
+                          <property name="relative_position" type="realpoint">-212.000000,-77.000000</property>
+                          <property name="size" type="realpoint">256.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt;  / [incrementTimer(dre.pwm_wait_timer)] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
                     </object>
                     <object type="umlTransitionItem">
-                      <property name="id" type="long">11</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
+                      <property name="id" type="long">15</property>
+                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
                         <object type="udTransElementItem">
                           <property name="id" type="long">0</property>
-                          <property name="name" type="string">Step</property>
-                          <property name="description" type="string">Increases light</property>
+                          <property name="name" type="string">Transition connection</property>
+                          <property name="description" type="string">Transition's description...</property>
                           <property name="priority" type="long">1</property>
                           <object type="udConditionLinkItem">
                             <property name="id" type="long">-1</property>
@@ -239,73 +301,9 @@
                             <property name="original_code" type="string">&lt;global&gt;::timeExpired#39&lt;timerVar:uint32_t&gt;&lt;waitingTime:uint32_t&gt;</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                             <property name="call_parameters" type="mapstring">
-                              <item key="waitingTime">CFG_MOTORCTRL_PWM_INCR_TIME</item>
+                              <item key="waitingTime">CFG_MOTORCTRL_WAIT_TIME_AFTER</item>
                               <item key="timerVar">dre.pwm_wait_timer</item>
                             </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrDutyBw</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrDutyBw#12</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">5</property>
-                      <property name="target" type="long">13</property>
-                      <property name="source_offset" type="realpoint">0.200000,0.400000</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>233.000000,290.000000</item>
-                        <item>243.000000,210.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">12</property>
-                          <property name="relative_position" type="realpoint">-233.000000,-39.000000</property>
-                          <property name="size" type="realpoint">538.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDutyBw()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">13</property>
-                      <property name="relative_position" type="realpoint">411.000000,170.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Increasing</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">104.000000,50.000000</property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">14</property>
-                          <property name="relative_position" type="realpoint">23.000000,5.000000</property>
-                          <property name="size" type="realpoint">58.000000,15.000000</property>
-                          <property name="text" type="string">Increasing</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">15</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">End</property>
-                          <property name="description" type="string">Red light finished increasing</property>
-                          <property name="priority" type="long">1</property>
-                          <object type="udConditionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">EndFastBw</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::EndFastBw#18</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
                           </object>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
@@ -316,57 +314,66 @@
                           </object>
                         </object>
                       </property>
-                      <property name="source" type="long">13</property>
-                      <property name="target" type="long">3</property>
+                      <property name="source" type="long">11</property>
+                      <property name="target" type="long">9</property>
                       <property name="label" type="serializabledynamicnocreate">
                         <object type="uddLabelElement">
                           <property name="id" type="long">16</property>
-                          <property name="relative_position" type="realpoint">-110.000000,-19.000000</property>
-                          <property name="size" type="realpoint">216.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : EndFastBw() / [setStepDone()] &gt;&gt;</property>
+                          <property name="relative_position" type="realpoint">-143.000000,3.000000</property>
+                          <property name="size" type="realpoint">557.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_WAIT_TIME_AFTER) / [setStepDone()] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
                     </object>
                     <object type="umlTransitionItem">
                       <property name="id" type="long">17</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
+                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
                         <object type="udTransElementItem">
                           <property name="id" type="long">0</property>
-                          <property name="name" type="string">Init</property>
-                          <property name="description" type="string">Shutdown light at beginning</property>
-                          <object type="udActionLinkItem">
+                          <property name="name" type="string">Transition connection</property>
+                          <property name="description" type="string">Transition's description...</property>
+                          <property name="priority" type="long">1</property>
+                          <object type="udConditionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">shutDownPwms</property>
+                            <property name="name" type="string">timeExpired</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwms#8</property>
+                            <property name="original_code" type="string">&lt;global&gt;::timeExpired#39&lt;timerVar:uint32_t&gt;&lt;waitingTime:uint32_t&gt;</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
+                            <property name="call_parameters" type="mapstring">
+                              <item key="waitingTime">CFG_MOTORCTRL_WAIT_TIME_BEFORE</item>
+                              <item key="timerVar">dre.pwm_wait_timer</item>
+                            </property>
                           </object>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">setPwmDuty</property>
+                            <property name="name" type="string">resetWaitTime</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::setPwmDuty#48&lt;pwmVar:Integer&gt;&lt;dutyToSet:uint32_t&gt;</property>
+                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                             <property name="call_parameters" type="mapstring">
-                              <item key="pwmVar">dre.dutyBw</item>
-                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX_BW</item>
+                              <item key="timerVar">dre.pwm_wait_timer</item>
                             </property>
+                          </object>
+                          <object type="udActionLinkItem">
+                            <property name="id" type="long">-1</property>
+                            <property name="name" type="string">changeDir</property>
+                            <property name="description" type="string">Link description...</property>
+                            <property name="original_code" type="string">&lt;global&gt;::changeDir#52</property>
+                            <property name="scope" type="string">&lt;global&gt;</property>
                           </object>
                         </object>
                       </property>
-                      <property name="source" type="long">1</property>
-                      <property name="target" type="long">13</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>485.000000,93.000000</item>
-                      </property>
+                      <property name="source" type="long">7</property>
+                      <property name="target" type="long">11</property>
+                      <property name="target_offset" type="realpoint">0.400000,0.400000</property>
                       <property name="label" type="serializabledynamicnocreate">
                         <object type="uddLabelElement">
                           <property name="id" type="long">18</property>
-                          <property name="relative_position" type="realpoint">-247.000000,21.000000</property>
-                          <property name="size" type="realpoint">534.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [shutDownPwms(), setPwmDuty(dre.dutyBw, CFG_MOTORCTRL_PWM_DUTY_MAX_BW)] &gt;&gt;</property>
+                          <property name="relative_position" type="realpoint">-256.000000,-17.000000</property>
+                          <property name="size" type="realpoint">759.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_WAIT_TIME_BEFORE) / [resetWaitTime(dre.pwm_wait_timer), changeDir()] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
@@ -376,23 +383,22 @@
               </property>
             </object>
           </property>
-          <property name="size" type="realpoint">111.000000,50.000000</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">4</property>
-              <property name="relative_position" type="realpoint">22.000000,5.000000</property>
-              <property name="size" type="realpoint">67.000000,15.000000</property>
-              <property name="text" type="string">fastBwCycle</property>
+              <property name="id" type="long">28</property>
+              <property name="relative_position" type="realpoint">20.000000,5.000000</property>
+              <property name="size" type="realpoint">60.000000,15.000000</property>
+              <property name="text" type="string">DirChange</property>
               <property name="label_type" type="int">1</property>
             </object>
           </property>
           <property name="sign" type="serializabledynamicnocreate">
             <object type="wxSFBitmapShape">
-              <property name="id" type="long">5</property>
+              <property name="id" type="long">29</property>
               <property name="active" type="bool">0</property>
               <property name="hover_color" type="colour">128,128,255,255</property>
-              <property name="relative_position" type="realpoint">81.000000,30.000000</property>
+              <property name="relative_position" type="realpoint">70.000000,30.000000</property>
               <property name="size" type="realpoint">15.000000,5.000000</property>
             </object>
           </property>
@@ -490,7 +496,11 @@
             </object>
           </property>
           <property name="source" type="long">14</property>
-          <property name="target" type="long">3</property>
+          <property name="target" type="long">27</property>
+          <property name="target_offset" type="realpoint">0.400000,0.600000</property>
+          <property name="control_points" type="listrealpoint">
+            <item>550.000000,270.000000</item>
+          </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
               <property name="id" type="long">11</property>
@@ -502,13 +512,13 @@
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">12</property>
-          <property name="relative_position" type="realpoint">380.000000,270.000000</property>
+          <property name="id" type="long">17</property>
+          <property name="relative_position" type="realpoint">510.000000,260.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
               <property name="id" type="long">0</property>
-              <property name="name" type="string">toSlowBw</property>
-              <property name="description" type="string">After cycling Green light, now it's turn for Blue one.</property>
+              <property name="name" type="string">Transition connection</property>
+              <property name="description" type="string">Transition's description...</property>
               <object type="udConditionLinkItem">
                 <property name="id" type="long">-1</property>
                 <property name="name" type="string">stepDone</property>
@@ -525,15 +535,15 @@
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">21</property>
+          <property name="source" type="long">27</property>
+          <property name="target" type="long">24</property>
           <property name="control_points" type="listrealpoint">
-            <item>420.000000,370.000000</item>
+            <item>220.000000,260.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">13</property>
-              <property name="relative_position" type="realpoint">-89.000000,-19.000000</property>
+              <property name="id" type="long">18</property>
+              <property name="relative_position" type="realpoint">-101.000000,-7.000000</property>
               <property name="size" type="realpoint">202.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; stepDone() / [resetStepDone()] &gt;&gt;</property>
               <property name="label_type" type="int">3</property>
@@ -707,9 +717,9 @@
                           </object>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrDutyFw</property>
+                            <property name="name" type="string">incrDuty</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrDutyFw#11</property>
+                            <property name="original_code" type="string">&lt;global&gt;::incrDuty#11</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                           </object>
                         </object>
@@ -725,8 +735,8 @@
                         <object type="uddLabelElement">
                           <property name="id" type="long">12</property>
                           <property name="relative_position" type="realpoint">-213.000000,-39.000000</property>
-                          <property name="size" type="realpoint">537.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDutyFw()] &gt;&gt;</property>
+                          <property name="size" type="realpoint">521.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDuty()] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
@@ -812,9 +822,9 @@
                           <property name="description" type="string">Shutdown light at beginning</property>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">shutDownPwms</property>
+                            <property name="name" type="string">shutDownPwm</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwms#8</property>
+                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwm#8</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                           </object>
                           <object type="udActionLinkItem">
@@ -824,8 +834,8 @@
                             <property name="original_code" type="string">&lt;global&gt;::setPwmDuty#48&lt;pwmVar:Integer&gt;&lt;dutyToSet:uint32_t&gt;</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                             <property name="call_parameters" type="mapstring">
-                              <item key="pwmVar">dre.dutyFw</item>
-                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX_FW</item>
+                              <item key="pwmVar">dre.motorCtrlDuty</item>
+                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX</item>
                             </property>
                           </object>
                         </object>
@@ -839,8 +849,8 @@
                         <object type="uddLabelElement">
                           <property name="id" type="long">18</property>
                           <property name="relative_position" type="realpoint">-157.000000,-9.000000</property>
-                          <property name="size" type="realpoint">532.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [shutDownPwms(), setPwmDuty(dre.dutyFw, CFG_MOTORCTRL_PWM_DUTY_MAX_FW)] &gt;&gt;</property>
+                          <property name="size" type="realpoint">537.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt;  / [shutDownPwm(), setPwmDuty(dre.motorCtrlDuty, CFG_MOTORCTRL_PWM_DUTY_MAX)] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
@@ -867,411 +877,6 @@
               <property name="active" type="bool">0</property>
               <property name="hover_color" type="colour">128,128,255,255</property>
               <property name="relative_position" type="realpoint">81.000000,30.000000</property>
-              <property name="size" type="realpoint">15.000000,5.000000</property>
-            </object>
-          </property>
-        </object>
-        <object type="umlTransitionItem">
-          <property name="id" type="long">17</property>
-          <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-          <property name="user_data" type="serializabledynamic">
-            <object type="udTransElementItem">
-              <property name="id" type="long">0</property>
-              <property name="name" type="string">Transition connection</property>
-              <property name="description" type="string">Transition's description...</property>
-              <object type="udConditionLinkItem">
-                <property name="id" type="long">-1</property>
-                <property name="name" type="string">stepDone</property>
-                <property name="description" type="string">Link description...</property>
-                <property name="original_code" type="string">&lt;global&gt;::stepDone#32</property>
-                <property name="scope" type="string">&lt;global&gt;</property>
-              </object>
-              <object type="udActionLinkItem">
-                <property name="id" type="long">-1</property>
-                <property name="name" type="string">resetStepDone</property>
-                <property name="description" type="string">Link description...</property>
-                <property name="original_code" type="string">&lt;global&gt;::resetStepDone#33</property>
-                <property name="scope" type="string">&lt;global&gt;</property>
-              </object>
-            </object>
-          </property>
-          <property name="source" type="long">27</property>
-          <property name="target" type="long">24</property>
-          <property name="label" type="serializabledynamicnocreate">
-            <object type="uddLabelElement">
-              <property name="id" type="long">18</property>
-              <property name="relative_position" type="realpoint">-101.000000,-7.000000</property>
-              <property name="size" type="realpoint">202.000000,15.000000</property>
-              <property name="text" type="string">&lt;&lt; stepDone() / [resetStepDone()] &gt;&gt;</property>
-              <property name="label_type" type="int">3</property>
-            </object>
-          </property>
-        </object>
-        <object type="umlTransitionItem">
-          <property name="id" type="long">19</property>
-          <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-          <property name="user_data" type="serializabledynamic">
-            <object type="udTransElementItem">
-              <property name="id" type="long">0</property>
-              <property name="name" type="string">Transition connection</property>
-              <property name="description" type="string">Transition's description...</property>
-              <object type="udConditionLinkItem">
-                <property name="id" type="long">-1</property>
-                <property name="name" type="string">stepDone</property>
-                <property name="description" type="string">Link description...</property>
-                <property name="original_code" type="string">&lt;global&gt;::stepDone#32</property>
-                <property name="scope" type="string">&lt;global&gt;</property>
-              </object>
-              <object type="udActionLinkItem">
-                <property name="id" type="long">-1</property>
-                <property name="name" type="string">resetStepDone</property>
-                <property name="description" type="string">Link description...</property>
-                <property name="original_code" type="string">&lt;global&gt;::resetStepDone#33</property>
-                <property name="scope" type="string">&lt;global&gt;</property>
-              </object>
-            </object>
-          </property>
-          <property name="source" type="long">21</property>
-          <property name="target" type="long">27</property>
-          <property name="target_offset" type="realpoint">0.300000,0.600000</property>
-          <property name="label" type="serializabledynamicnocreate">
-            <object type="uddLabelElement">
-              <property name="id" type="long">20</property>
-              <property name="relative_position" type="realpoint">-101.000000,-7.000000</property>
-              <property name="size" type="realpoint">202.000000,15.000000</property>
-              <property name="text" type="string">&lt;&lt; stepDone() / [resetStepDone()] &gt;&gt;</property>
-              <property name="label_type" type="int">3</property>
-            </object>
-          </property>
-        </object>
-        <object type="umlSubStateItem">
-          <property name="id" type="long">21</property>
-          <property name="relative_position" type="realpoint">154.000000,390.000000</property>
-          <property name="user_data" type="serializabledynamic">
-            <object type="udSCHSubDiagramElementItem">
-              <property name="id" type="long">0</property>
-              <property name="name" type="string">slowBwCycle</property>
-              <property name="description" type="string">Diagram element's description...</property>
-              <property name="subdiagram" type="serializabledynamicnocreate">
-                <object type="udSStateChartDiagramItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">slowBwCycle</property>
-                  <property name="description" type="string">Increasing light cycle</property>
-                  <property name="diagram_type" type="string">State Chart</property>
-                  <property name="generate_code" type="bool">1</property>
-                  <property name="output_file" type="string">&lt;default&gt;</property>
-                  <property name="active_generator" type="string">udSStateChartGenerator</property>
-                  <property name="active_algorithm" type="string">udLoopCaseAlgorithm</property>
-                  <property name="input_action" type="string">&lt;none&gt;</property>
-                  <property name="non_blocking" type="bool">1</property>
-                  <property name="inline" type="bool">0</property>
-                  <diagram>
-                    <object type="umlInitialItem">
-                      <property name="id" type="long">1</property>
-                      <property name="relative_position" type="realpoint">213.000000,60.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udInitialElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Initial</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">20.000000,20.000000</property>
-                      <property name="fill" type="brush">0,0,0,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">2</property>
-                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                          <property name="size" type="realpoint">29.000000,15.000000</property>
-                          <property name="text" type="string">Initial</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlFinalItem">
-                      <property name="id" type="long">3</property>
-                      <property name="relative_position" type="realpoint">733.000000,200.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udFinalElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Final</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">20.000000,20.000000</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">4</property>
-                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                          <property name="size" type="realpoint">27.000000,15.000000</property>
-                          <property name="text" type="string">Final</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">5</property>
-                      <property name="relative_position" type="realpoint">361.000000,170.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Increasing</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">104.000000,50.000000</property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">6</property>
-                          <property name="relative_position" type="realpoint">23.000000,5.000000</property>
-                          <property name="size" type="realpoint">58.000000,15.000000</property>
-                          <property name="text" type="string">Increasing</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">7</property>
-                      <property name="relative_position" type="realpoint">303.000000,280.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Wait</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">8</property>
-                          <property name="relative_position" type="realpoint">38.000000,5.000000</property>
-                          <property name="size" type="realpoint">25.000000,15.000000</property>
-                          <property name="text" type="string">Wait</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">9</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Step</property>
-                          <property name="description" type="string">Increases light</property>
-                          <property name="priority" type="long">1</property>
-                          <object type="udConditionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">timeExpired</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::timeExpired#39&lt;timerVar:uint32_t&gt;&lt;waitingTime:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="waitingTime">CFG_MOTORCTRL_PWM_INCR_TIME</item>
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrDutyBw</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrDutyBw#12</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">7</property>
-                      <property name="target" type="long">5</property>
-                      <property name="source_offset" type="realpoint">0.200000,0.600000</property>
-                      <property name="target_offset" type="realpoint">0.115385,0.600000</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>223.000000,250.000000</item>
-                        <item>273.000000,200.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">10</property>
-                          <property name="relative_position" type="realpoint">-213.000000,-9.000000</property>
-                          <property name="size" type="realpoint">538.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDutyBw()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">11</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">End</property>
-                          <property name="description" type="string">Red light finished increasing</property>
-                          <property name="priority" type="long">1</property>
-                          <object type="udConditionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">EndSlowBw</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::EndSlowBw#22</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">setStepDone</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::setStepDone#34</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">5</property>
-                      <property name="target" type="long">3</property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">12</property>
-                          <property name="relative_position" type="realpoint">-80.000000,-29.000000</property>
-                          <property name="size" type="realpoint">219.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : EndSlowBw() / [setStepDone()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">13</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrementTimer</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrementTimer#41&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">7</property>
-                      <property name="target" type="long">7</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>283.000000,390.000000</item>
-                        <item>373.000000,440.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">14</property>
-                          <property name="relative_position" type="realpoint">-88.000000,3.000000</property>
-                          <property name="size" type="realpoint">256.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [incrementTimer(dre.pwm_wait_timer)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">15</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">resetWaitTime</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">5</property>
-                      <property name="target" type="long">7</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>653.000000,270.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">16</property>
-                          <property name="relative_position" type="realpoint">-113.000000,-7.000000</property>
-                          <property name="size" type="realpoint">249.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [resetWaitTime(dre.pwm_wait_timer)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">17</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Init</property>
-                          <property name="description" type="string">Shutdown light at beginning</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">shutDownPwms</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwms#8</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">setPwmDuty</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::setPwmDuty#48&lt;pwmVar:Integer&gt;&lt;dutyToSet:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="pwmVar">dre.dutyBw</item>
-                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX_BW</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">1</property>
-                      <property name="target" type="long">5</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>405.000000,93.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">18</property>
-                          <property name="relative_position" type="realpoint">-207.000000,21.000000</property>
-                          <property name="size" type="realpoint">534.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [shutDownPwms(), setPwmDuty(dre.dutyBw, CFG_MOTORCTRL_PWM_DUTY_MAX_BW)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                  </diagram>
-                </object>
-              </property>
-            </object>
-          </property>
-          <property name="size" type="realpoint">113.000000,50.000000</property>
-          <property name="fill" type="brush">254,253,211,255 100</property>
-          <property name="title" type="serializabledynamicnocreate">
-            <object type="uddLabelElement">
-              <property name="id" type="long">22</property>
-              <property name="relative_position" type="realpoint">20.000000,5.000000</property>
-              <property name="size" type="realpoint">73.000000,15.000000</property>
-              <property name="text" type="string">slowBwCycle</property>
-              <property name="label_type" type="int">1</property>
-            </object>
-          </property>
-          <property name="sign" type="serializabledynamicnocreate">
-            <object type="wxSFBitmapShape">
-              <property name="id" type="long">23</property>
-              <property name="active" type="bool">0</property>
-              <property name="hover_color" type="colour">128,128,255,255</property>
-              <property name="relative_position" type="realpoint">83.000000,30.000000</property>
               <property name="size" type="realpoint">15.000000,5.000000</property>
             </object>
           </property>
@@ -1316,28 +921,6 @@
                           <property name="relative_position" type="realpoint">0.000000,25.000000</property>
                           <property name="size" type="realpoint">29.000000,15.000000</property>
                           <property name="text" type="string">Initial</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">3</property>
-                      <property name="relative_position" type="realpoint">338.000000,170.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Increasing</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">104.000000,50.000000</property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">4</property>
-                          <property name="relative_position" type="realpoint">23.000000,5.000000</property>
-                          <property name="size" type="realpoint">58.000000,15.000000</property>
-                          <property name="text" type="string">Increasing</property>
                           <property name="label_type" type="int">1</property>
                         </object>
                       </property>
@@ -1422,9 +1005,9 @@
                           </object>
                           <object type="udActionLinkItem">
                             <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrDutyFw</property>
+                            <property name="name" type="string">incrDuty</property>
                             <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrDutyFw#11</property>
+                            <property name="original_code" type="string">&lt;global&gt;::incrDuty#11</property>
                             <property name="scope" type="string">&lt;global&gt;</property>
                           </object>
                         </object>
@@ -1440,8 +1023,8 @@
                         <object type="uddLabelElement">
                           <property name="id" type="long">10</property>
                           <property name="relative_position" type="realpoint">-183.000000,-19.000000</property>
-                          <property name="size" type="realpoint">537.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDutyFw()] &gt;&gt;</property>
+                          <property name="size" type="realpoint">521.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_PWM_INCR_TIME) / [incrDuty()] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
                       </property>
@@ -1503,49 +1086,6 @@
                       </property>
                     </object>
                     <object type="umlTransitionItem">
-                      <property name="id" type="long">15</property>
-                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Init</property>
-                          <property name="description" type="string">Shutdown light at beginning</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">shutDownPwms</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwms#8</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">setPwmDuty</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::setPwmDuty#48&lt;pwmVar:Integer&gt;&lt;dutyToSet:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="pwmVar">dre.dutyFw</item>
-                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX_FW</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">1</property>
-                      <property name="target" type="long">3</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>392.000000,93.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">16</property>
-                          <property name="relative_position" type="realpoint">-137.000000,11.000000</property>
-                          <property name="size" type="realpoint">532.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [shutDownPwms(), setPwmDuty(dre.dutyFw, CFG_MOTORCTRL_PWM_DUTY_MAX_FW)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
                       <property name="id" type="long">17</property>
                       <property name="relative_position" type="realpoint">510.000000,260.000000</property>
                       <property name="user_data" type="serializabledynamic">
@@ -1581,6 +1121,71 @@
                         </object>
                       </property>
                     </object>
+                    <object type="umlSimpleStateItem">
+                      <property name="id" type="long">3</property>
+                      <property name="relative_position" type="realpoint">338.000000,170.000000</property>
+                      <property name="user_data" type="serializabledynamic">
+                        <object type="udSimpleStateElementItem">
+                          <property name="id" type="long">0</property>
+                          <property name="name" type="string">Increasing</property>
+                          <property name="description" type="string">Diagram element's description...</property>
+                        </object>
+                      </property>
+                      <property name="size" type="realpoint">104.000000,50.000000</property>
+                      <property name="fill" type="brush">254,253,211,255 100</property>
+                      <property name="title" type="serializabledynamicnocreate">
+                        <object type="uddLabelElement">
+                          <property name="id" type="long">4</property>
+                          <property name="relative_position" type="realpoint">23.000000,5.000000</property>
+                          <property name="size" type="realpoint">58.000000,15.000000</property>
+                          <property name="text" type="string">Increasing</property>
+                          <property name="label_type" type="int">1</property>
+                        </object>
+                      </property>
+                    </object>
+                    <object type="umlTransitionItem">
+                      <property name="id" type="long">15</property>
+                      <property name="relative_position" type="realpoint">510.000000,270.000000</property>
+                      <property name="user_data" type="serializabledynamic">
+                        <object type="udTransElementItem">
+                          <property name="id" type="long">0</property>
+                          <property name="name" type="string">Init</property>
+                          <property name="description" type="string">Shutdown light at beginning</property>
+                          <object type="udActionLinkItem">
+                            <property name="id" type="long">-1</property>
+                            <property name="name" type="string">shutDownPwm</property>
+                            <property name="description" type="string">Link description...</property>
+                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwm#8</property>
+                            <property name="scope" type="string">&lt;global&gt;</property>
+                          </object>
+                          <object type="udActionLinkItem">
+                            <property name="id" type="long">-1</property>
+                            <property name="name" type="string">setPwmDuty</property>
+                            <property name="description" type="string">Link description...</property>
+                            <property name="original_code" type="string">&lt;global&gt;::setPwmDuty#48&lt;pwmVar:Integer&gt;&lt;dutyToSet:uint32_t&gt;</property>
+                            <property name="scope" type="string">&lt;global&gt;</property>
+                            <property name="call_parameters" type="mapstring">
+                              <item key="pwmVar">dre.motorCtrlDuty</item>
+                              <item key="dutyToSet">CFG_MOTORCTRL_PWM_DUTY_MAX</item>
+                            </property>
+                          </object>
+                        </object>
+                      </property>
+                      <property name="source" type="long">1</property>
+                      <property name="target" type="long">3</property>
+                      <property name="control_points" type="listrealpoint">
+                        <item>392.000000,93.000000</item>
+                      </property>
+                      <property name="label" type="serializabledynamicnocreate">
+                        <object type="uddLabelElement">
+                          <property name="id" type="long">16</property>
+                          <property name="relative_position" type="realpoint">-137.000000,11.000000</property>
+                          <property name="size" type="realpoint">537.000000,15.000000</property>
+                          <property name="text" type="string">&lt;&lt;  / [shutDownPwm(), setPwmDuty(dre.motorCtrlDuty, CFG_MOTORCTRL_PWM_DUTY_MAX)] &gt;&gt;</property>
+                          <property name="label_type" type="int">3</property>
+                        </object>
+                      </property>
+                    </object>
                   </diagram>
                 </object>
               </property>
@@ -1607,343 +1212,6 @@
             </object>
           </property>
         </object>
-        <object type="umlSubStateItem">
-          <property name="id" type="long">27</property>
-          <property name="relative_position" type="realpoint">70.000000,240.000000</property>
-          <property name="user_data" type="serializabledynamic">
-            <object type="udSCHSubDiagramElementItem">
-              <property name="id" type="long">0</property>
-              <property name="name" type="string">DirChange</property>
-              <property name="description" type="string">Diagram element's description...</property>
-              <property name="subdiagram" type="serializabledynamicnocreate">
-                <object type="udSStateChartDiagramItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">DirChange</property>
-                  <property name="description" type="string">Diagram's description...</property>
-                  <property name="diagram_type" type="string">State Chart</property>
-                  <property name="generate_code" type="bool">1</property>
-                  <property name="output_file" type="string">&lt;default&gt;</property>
-                  <property name="active_generator" type="string">udSStateChartGenerator</property>
-                  <property name="active_algorithm" type="string">udLoopCaseAlgorithm</property>
-                  <property name="input_action" type="string">&lt;none&gt;</property>
-                  <property name="non_blocking" type="bool">1</property>
-                  <property name="inline" type="bool">0</property>
-                  <diagram>
-                    <object type="umlInitialItem">
-                      <property name="id" type="long">1</property>
-                      <property name="relative_position" type="realpoint">120.000000,30.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udInitialElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Initial</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">20.000000,20.000000</property>
-                      <property name="fill" type="brush">0,0,0,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">2</property>
-                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                          <property name="size" type="realpoint">29.000000,15.000000</property>
-                          <property name="text" type="string">Initial</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">3</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">resetWaitTime</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">shutDownPwms</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::shutDownPwms#8</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">1</property>
-                      <property name="target" type="long">7</property>
-                      <property name="target_offset" type="realpoint">0.300000,0.400000</property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">4</property>
-                          <property name="relative_position" type="realpoint">-178.000000,-7.000000</property>
-                          <property name="size" type="realpoint">354.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [resetWaitTime(dre.pwm_wait_timer), shutDownPwms()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">5</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrementTimer</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrementTimer#41&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">7</property>
-                      <property name="target" type="long">7</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>450.000000,150.000000</item>
-                        <item>510.000000,70.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">6</property>
-                          <property name="relative_position" type="realpoint">-42.000000,-57.000000</property>
-                          <property name="size" type="realpoint">256.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [incrementTimer(dre.pwm_wait_timer)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">7</property>
-                      <property name="relative_position" type="realpoint">240.000000,120.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Waitbefore</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">8</property>
-                          <property name="relative_position" type="realpoint">21.000000,5.000000</property>
-                          <property name="size" type="realpoint">59.000000,15.000000</property>
-                          <property name="text" type="string">Waitbefore</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlFinalItem">
-                      <property name="id" type="long">11</property>
-                      <property name="relative_position" type="realpoint">570.000000,370.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udFinalElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Final</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="size" type="realpoint">20.000000,20.000000</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">12</property>
-                          <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                          <property name="size" type="realpoint">27.000000,15.000000</property>
-                          <property name="text" type="string">Final</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlSimpleStateItem">
-                      <property name="id" type="long">13</property>
-                      <property name="relative_position" type="realpoint">320.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udSimpleStateElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">WaitAfter</property>
-                          <property name="description" type="string">Diagram element's description...</property>
-                        </object>
-                      </property>
-                      <property name="fill" type="brush">254,253,211,255 100</property>
-                      <property name="title" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">14</property>
-                          <property name="relative_position" type="realpoint">26.000000,5.000000</property>
-                          <property name="size" type="realpoint">49.000000,15.000000</property>
-                          <property name="text" type="string">WaitAfter</property>
-                          <property name="label_type" type="int">1</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">17</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">incrementTimer</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::incrementTimer#41&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">13</property>
-                      <property name="target" type="long">13</property>
-                      <property name="control_points" type="listrealpoint">
-                        <item>280.000000,390.000000</item>
-                        <item>160.000000,340.000000</item>
-                      </property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">18</property>
-                          <property name="relative_position" type="realpoint">-212.000000,-77.000000</property>
-                          <property name="size" type="realpoint">256.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt;  / [incrementTimer(dre.pwm_wait_timer)] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">15</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <property name="priority" type="long">1</property>
-                          <object type="udConditionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">timeExpired</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::timeExpired#39&lt;timerVar:uint32_t&gt;&lt;waitingTime:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="waitingTime">CFG_MOTORCTRL_WAIT_TIME_AFTER</item>
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">setStepDone</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::setStepDone#34</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">13</property>
-                      <property name="target" type="long">11</property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">16</property>
-                          <property name="relative_position" type="realpoint">-143.000000,3.000000</property>
-                          <property name="size" type="realpoint">557.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_WAIT_TIME_AFTER) / [setStepDone()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                    <object type="umlTransitionItem">
-                      <property name="id" type="long">9</property>
-                      <property name="relative_position" type="realpoint">510.000000,260.000000</property>
-                      <property name="user_data" type="serializabledynamic">
-                        <object type="udTransElementItem">
-                          <property name="id" type="long">0</property>
-                          <property name="name" type="string">Transition connection</property>
-                          <property name="description" type="string">Transition's description...</property>
-                          <property name="priority" type="long">1</property>
-                          <object type="udConditionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">timeExpired</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::timeExpired#39&lt;timerVar:uint32_t&gt;&lt;waitingTime:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="waitingTime">CFG_MOTORCTRL_WAIT_TIME_BEFORE</item>
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">resetWaitTime</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::resetWaitTime#38&lt;timerVar:uint32_t&gt;</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                            <property name="call_parameters" type="mapstring">
-                              <item key="timerVar">dre.pwm_wait_timer</item>
-                            </property>
-                          </object>
-                          <object type="udActionLinkItem">
-                            <property name="id" type="long">-1</property>
-                            <property name="name" type="string">changeDir</property>
-                            <property name="description" type="string">Link description...</property>
-                            <property name="original_code" type="string">&lt;global&gt;::changeDir#52</property>
-                            <property name="scope" type="string">&lt;global&gt;</property>
-                          </object>
-                        </object>
-                      </property>
-                      <property name="source" type="long">7</property>
-                      <property name="target" type="long">13</property>
-                      <property name="target_offset" type="realpoint">0.400000,0.400000</property>
-                      <property name="label" type="serializabledynamicnocreate">
-                        <object type="uddLabelElement">
-                          <property name="id" type="long">10</property>
-                          <property name="relative_position" type="realpoint">-256.000000,-17.000000</property>
-                          <property name="size" type="realpoint">759.000000,15.000000</property>
-                          <property name="text" type="string">&lt;&lt; 1 : timeExpired(dre.pwm_wait_timer, CFG_MOTORCTRL_WAIT_TIME_BEFORE) / [resetWaitTime(dre.pwm_wait_timer), changeDir()] &gt;&gt;</property>
-                          <property name="label_type" type="int">3</property>
-                        </object>
-                      </property>
-                    </object>
-                  </diagram>
-                </object>
-              </property>
-            </object>
-          </property>
-          <property name="fill" type="brush">254,253,211,255 100</property>
-          <property name="title" type="serializabledynamicnocreate">
-            <object type="uddLabelElement">
-              <property name="id" type="long">28</property>
-              <property name="relative_position" type="realpoint">20.000000,5.000000</property>
-              <property name="size" type="realpoint">60.000000,15.000000</property>
-              <property name="text" type="string">DirChange</property>
-              <property name="label_type" type="int">1</property>
-            </object>
-          </property>
-          <property name="sign" type="serializabledynamicnocreate">
-            <object type="wxSFBitmapShape">
-              <property name="id" type="long">29</property>
-              <property name="active" type="bool">0</property>
-              <property name="hover_color" type="colour">128,128,255,255</property>
-              <property name="relative_position" type="realpoint">70.000000,30.000000</property>
-              <property name="size" type="realpoint">15.000000,5.000000</property>
-            </object>
-          </property>
-        </object>
       </diagram>
     </object>
   </object>
@@ -1958,41 +1226,9 @@
       <property name="id" type="long">10</property>
       <property name="name" type="string">EndSlowFw</property>
       <property name="description" type="string">Red light has arrived to its maximum value.</property>
-      <property name="code" type="string">dre.dutyFw&lt;=CFG_MOTORCTRL_PWM_DUTY_HALF</property>
+      <property name="code" type="string">dre.motorCtrlDuty&lt;=CFG_MOTORCTRL_PWM_DUTY_HALF</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::EndSlowFw#10</property>
-      <property name="inline" type="bool">1</property>
-      <property name="retval_data_type" type="int">0</property>
-      <property name="retval_value_type" type="int">0</property>
-      <property name="retval_data_modifier" type="int">0</property>
-      <property name="user_retval_decl_place" type="int">2</property>
-      <property name="user_retval_data_type" type="string">bool</property>
-      <property name="user_retval_decl_file" type="string">/home/pi/sketchbook/libraries/gatArduinOSEK/gttc_types.h</property>
-      <property name="function_modifier" type="int">0</property>
-    </object>
-    <object type="udConditionItem">
-      <property name="id" type="long">18</property>
-      <property name="name" type="string">EndFastBw</property>
-      <property name="description" type="string">Green light has arrived to its maximum level.</property>
-      <property name="code" type="string">dre.dutyBw&lt;=CFG_MOTORCTRL_PWM_DUTY_MIN_BW</property>
-      <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::EndFastBw#18</property>
-      <property name="inline" type="bool">1</property>
-      <property name="retval_data_type" type="int">0</property>
-      <property name="retval_value_type" type="int">0</property>
-      <property name="retval_data_modifier" type="int">0</property>
-      <property name="user_retval_decl_place" type="int">2</property>
-      <property name="user_retval_data_type" type="string">bool</property>
-      <property name="user_retval_decl_file" type="string">/home/pi/sketchbook/libraries/gatArduinOSEK/gttc_types.h</property>
-      <property name="function_modifier" type="int">0</property>
-    </object>
-    <object type="udConditionItem">
-      <property name="id" type="long">22</property>
-      <property name="name" type="string">EndSlowBw</property>
-      <property name="description" type="string">Blue light has arrived to its maximum level.</property>
-      <property name="code" type="string">dre.dutyBw&lt;=CFG_MOTORCTRL_PWM_DUTY_HALF</property>
-      <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::EndSlowBw#22</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">0</property>
       <property name="retval_value_type" type="int">0</property>
@@ -2006,7 +1242,7 @@
       <property name="id" type="long">29</property>
       <property name="name" type="string">EndFastFw</property>
       <property name="description" type="string">Condition's description...</property>
-      <property name="code" type="string">dre.dutyFw&lt;=CFG_MOTORCTRL_PWM_DUTY_MIN_FW</property>
+      <property name="code" type="string">dre.motorCtrlDuty&lt;=CFG_MOTORCTRL_PWM_DUTY_MIN</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::EndFastFw#29</property>
       <property name="inline" type="bool">1</property>
@@ -2075,12 +1311,11 @@
     <property name="name" type="string">Action functions</property>
     <object type="udActionItem">
       <property name="id" type="long">8</property>
-      <property name="name" type="string">shutDownPwms</property>
+      <property name="name" type="string">shutDownPwm</property>
       <property name="description" type="string">Shut down pwms.</property>
-      <property name="code" type="string">dre.dutyFw=CFG_MOTORCTRL_PWM_DUTY_STOP_FW;
-dre.dutyBw=CFG_MOTORCTRL_PWM_DUTY_STOP_BW;</property>
+      <property name="code" type="string">dre.motorCtrlDuty=CFG_MOTORCTRL_PWM_DUTY_STOP;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::shutDownPwms#8</property>
+      <property name="signature" type="string">&lt;global&gt;::shutDownPwm#8</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -2090,25 +1325,11 @@ dre.dutyBw=CFG_MOTORCTRL_PWM_DUTY_STOP_BW;</property>
     </object>
     <object type="udActionItem">
       <property name="id" type="long">11</property>
-      <property name="name" type="string">incrDutyFw</property>
+      <property name="name" type="string">incrDuty</property>
       <property name="description" type="string">Increases red light</property>
-      <property name="code" type="string">incrPwm(dre.dutyFw,CFG_MOTORCTRL_PWM_DUTY_MIN_FW,CFG_MOTORCTRL_PWM_DUTY_MAX_FW,CFG_MOTORCTRL_PWM_DUTY_DELTA);</property>
+      <property name="code" type="string">incrPwm(dre.motorCtrlDuty,CFG_MOTORCTRL_PWM_DUTY_MIN,CFG_MOTORCTRL_PWM_DUTY_MAX,CFG_MOTORCTRL_PWM_DUTY_DELTA);</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::incrDutyFw#11</property>
-      <property name="inline" type="bool">1</property>
-      <property name="retval_data_type" type="int">10</property>
-      <property name="retval_value_type" type="int">0</property>
-      <property name="retval_data_modifier" type="int">0</property>
-      <property name="user_retval_decl_place" type="int">0</property>
-      <property name="function_modifier" type="int">0</property>
-    </object>
-    <object type="udActionItem">
-      <property name="id" type="long">12</property>
-      <property name="name" type="string">incrDutyBw</property>
-      <property name="description" type="string">Increases the green light</property>
-      <property name="code" type="string">incrPwm(dre.dutyBw,CFG_MOTORCTRL_PWM_DUTY_MIN_BW,CFG_MOTORCTRL_PWM_DUTY_MAX_BW,CFG_MOTORCTRL_PWM_DUTY_DELTA);</property>
-      <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::incrDutyBw#12</property>
+      <property name="signature" type="string">&lt;global&gt;::incrDuty#11</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>

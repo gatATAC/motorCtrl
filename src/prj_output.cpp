@@ -23,8 +23,7 @@ void processMotorCtrl(void){
   } else {
     digitalWrite (CFG_MOTORCTRL_IN4_PIN, LOW);
   }
-  analogWrite(CFG_MOTORCTRL_PWM_FW_PIN,dre.dutyFw);
-  analogWrite(CFG_MOTORCTRL_PWM_BW_PIN,dre.dutyBw);
+  analogWrite(CFG_MOTORCTRL_PWM_PIN,dre.motorCtrlDuty);
 }
 #endif
 
@@ -35,6 +34,7 @@ void prjOutputInit(void){
   analogWrite(blueLightPin,dre.blueLight);
 #endif
 #ifdef CFG_USE_MOTORCTRL
+  analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
   processMotorCtrl();
 #endif
 }
@@ -174,5 +174,6 @@ void prjOutput(void){
 #endif
 #ifdef CFG_USE_MOTORCTRL
   processMotorCtrl();
+  analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
 #endif
 }
