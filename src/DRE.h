@@ -4,7 +4,7 @@
 #include "ProjectTypes.h"
 #include "ProjectFlows.h"
 
-//typedef struct {
+typedef struct {
 // Button -- Does not need declaration upReq;
 // Button -- Does not need declaration downReq;
 // Position -- Does not need declaration mirrorPos;
@@ -22,7 +22,7 @@ t_mirrordirection mirrorDirection;
 t_pwm_duty rectifiedMirrorAction;
 t_rectifiedmirrordirection rectifiedMirrorDirection;
 
-//} t_dre;
+} t_dre;
 
 typedef struct {
 // (null) No diag variables for upReq
@@ -111,14 +111,14 @@ void setup_downReqDI(void);
 // (output not implemented for PWM type);
 
 // doDirFw flow acquisition
-pinMode(PORT_doDirFw, INPUT);;
+///pinMode(PORT_doDirFw, INPUT);;
 // doDirFw flow synthesis
-pinMode(PORT_doDirFw, OUTPUT);;
+///pinMode(PORT_doDirFw, OUTPUT);;
 
 // doDirBw flow acquisition
-pinMode(PORT_doDirBw, INPUT);;
+///pinMode(PORT_doDirBw, INPUT);;
 // doDirBw flow synthesis
-pinMode(PORT_doDirBw, OUTPUT);;
+///pinMode(PORT_doDirBw, OUTPUT);;
 
 // mirrorEnable flow acquisition
 // (setup input disabled for Variable type);

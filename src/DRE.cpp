@@ -1,7 +1,7 @@
 #include "DRE.h"
 #include "prj_pinout.h"
 // --- DRE data structure declaration ---
-//t_dre dre;
+t_dre dre;
 t_diag diag;
 
 // --- DRE flow initialization functions ---
@@ -39,17 +39,17 @@ t_diag diag;
 
 
 // upReqDI flow acquisition
-void setup_upReqDI(void){
- DI_pu_setup(PORT_upReqDI,value);
-};
+///void setup_upReqDI(void){
+/// DI_pu_setup(PORT_upReqDI,value);
+///};
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
 
 // downReqDI flow acquisition
-void setup_downReqDI(void){
- DI_pu_setup(PORT_downReqDI,value);
-};
+///void setup_downReqDI(void){
+/// DI_pu_setup(PORT_downReqDI,value);
+///};
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
 
@@ -73,15 +73,15 @@ void setup_downReqDI(void){
 
 
 // doDirFw flow acquisition
-pinMode(PORT_doDirFw, INPUT);
+///pinMode(PORT_doDirFw, INPUT);
 // doDirFw flow synthesis
-pinMode(PORT_doDirFw, OUTPUT);
+///pinMode(PORT_doDirFw, OUTPUT);
 
 
 // doDirBw flow acquisition
-pinMode(PORT_doDirBw, INPUT);
+///pinMode(PORT_doDirBw, INPUT);
 // doDirBw flow synthesis
-pinMode(PORT_doDirBw, OUTPUT);
+///pinMode(PORT_doDirBw, OUTPUT);
 
 
 // mirrorEnable flow acquisition
@@ -143,7 +143,7 @@ pinMode(PORT_doDirBw, OUTPUT);
 
 
 // upReqDI flow acquisition
-BOOL acquire_upReqDI(void){
+/*BOOL acquire_upReqDI(void){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_upReqDI==TRUE) {
 return diag.upReqDI;
@@ -153,13 +153,13 @@ return DI_pu_read(PORT_upReqDI,value);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
 
 // downReqDI flow acquisition
-BOOL acquire_downReqDI(void){
+/*BOOL acquire_downReqDI(void){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_downReqDI==TRUE) {
 return diag.downReqDI;
@@ -169,7 +169,7 @@ return DI_pu_read(PORT_downReqDI,value);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
 
@@ -187,17 +187,17 @@ return DI_pu_read(PORT_downReqDI,value);
 
 
 // pwmMirrorAction flow acquisition
-BOOL acquire_pwmMirrorAction(t_pwm *value){
+/*BOOL acquire_pwmMirrorAction(t_pwm *value){
 	return PWM_read(CANAL_pwmMirrorActionK,PORT_pwmMirrorAction,value);
-};
+};*/
 // pwmMirrorAction flow synthesis
-void synthesize_pwmMirrorAction(t_pwm *value){
+/*void synthesize_pwmMirrorAction(t_pwm *value){
 	PWM_write(PORT_pwmMirrorAction, CANAL_pwmMirrorAction, value);
 };&quot;
-
+*/
 
 // doDirFw flow acquisition
-BOOL adquirir_doDirFw(void){
+/*BOOL adquirir_doDirFw(void){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 return diag.doDirFw;
@@ -207,9 +207,9 @@ return digitalRead(PORT_doDirFw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 // doDirFw flow synthesis
-void sintetizar_doDirFw(BOOL valor){
+/*void sintetizar_doDirFw(BOOL valor){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 digitalWrite(PORT_doDirFw,diag.doDirFw);
@@ -219,11 +219,11 @@ digitalWrite(PORT_doDirFw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 
 
 // doDirBw flow acquisition
-BOOL adquirir_doDirBw(void){
+/*BOOL adquirir_doDirBw(void){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 return diag.doDirBw;
@@ -233,9 +233,9 @@ return digitalRead(PORT_doDirBw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 // doDirBw flow synthesis
-void sintetizar_doDirBw(BOOL valor){
+/*void sintetizar_doDirBw(BOOL valor){
 #ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 digitalWrite(PORT_doDirBw,diag.doDirBw);
@@ -245,7 +245,7 @@ digitalWrite(PORT_doDirBw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};
+};*/
 
 
 // mirrorEnable flow acquisition
