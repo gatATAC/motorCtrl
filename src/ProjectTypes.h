@@ -25,6 +25,7 @@ typedef bool t_mirrorenable;
 typedef uint8_t t_mirrordirection;
 typedef uint16_t t_pwm_duty;
 typedef uint8_t t_rectifiedmirrordirection;
+typedef uint16_t t_rectifiedpwmmirroraction;
 
 #include "DRE.h"
 

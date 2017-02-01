@@ -21,7 +21,7 @@ t_mirrorenable mirrorEnable;
 t_mirrordirection mirrorDirection;
 t_pwm_duty rectifiedMirrorAction;
 t_rectifiedmirrordirection rectifiedMirrorDirection;
-
+t_rectifiedpwmmirroraction rectifiedPwmMirrorAction;
 } t_dre;
 
 typedef struct {
@@ -222,5 +222,6 @@ void sintetizar_doDirBw(BOOL valor);
 // (input disabled for Variable type);
 // rectifiedMirrorDirection flow synthesis
 // (output disabled for Variable type);
+
 
 #endif /* _DRE_H */

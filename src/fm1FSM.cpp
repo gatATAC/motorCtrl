@@ -3,6 +3,14 @@
 #include "fm1FSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
+extern t_dre dre;
+extern t_diag diag;
+
+#define rectifiedPwmMirrorAction (dre.rectifiedPwmMirrorAction)
+#define appliedMirrorDirection (dre.appliedMirrorDirection)
+#define mirrDrvTimer (dre.mirrDrvTimer)
+#define mirrorDirection (dre.mirrorDirection)
+
 /* ['MirrorRectifier' begin (DON'T REMOVE THIS LINE!)] */
 void MirrorRectifier(  )
 {
