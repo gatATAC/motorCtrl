@@ -4,6 +4,7 @@
 #include "ProjectTypes.h"
 #include "ProjectFlows.h"
 
+
 typedef struct {
 // Button -- Does not need declaration upReq;
 // Button -- Does not need declaration downReq;
@@ -19,12 +20,12 @@ BOOL doDirFw;
 BOOL doDirBw;
 t_mirrorenable mirrorEnable;
 t_mirrordirection mirrorDirection;
-t_pwm_duty rectifiedMirrorAction;
+t_pwm_duty rectifiedPwmMirrorAction;
 t_rectifiedmirrordirection rectifiedMirrorDirection;
-t_rectifiedpwmmirroraction rectifiedPwmMirrorAction;
+uint16_t mirrorPosAcq;
 t_appliedmirrordirection appliedMirrorDirection;
-t_mirrdrvtimer mirrDrvTimer;
-t_rectifiedpwmactuation rectifiedPwmActuation;
+t_timer mirrDrvTimer;
+
 } t_dre2;
 
 typedef struct {
@@ -53,9 +54,16 @@ BOOL enable_mirrorEnable;
 t_mirrorenable mirrorEnable;
 BOOL enable_mirrorDirection;
 t_mirrordirection mirrorDirection;
-BOOL enable_rectifiedMirrorAction;
-t_pwm_duty rectifiedMirrorAction;
+BOOL enable_rectifiedPwmMirrorAction;
+t_pwm_duty rectifiedPwmMirrorAction;
 BOOL enable_rectifiedMirrorDirection;
+t_rectifiedmirrordirection rectifiedMirrorDirection;
+BOOL enable_mirrorPosAcq;
+uint16_t mirrorPosAcq;
+BOOL enable_appliedMirrorDirection;
+t_appliedmirrordirection appliedMirrorDirection;
+BOOL enable_mirrDrvTimer;
+t_timer mirrDrvTimer;
 } t_diag;
 
 // Initialization functions
@@ -107,19 +115,19 @@ void setup_downReqDI(void);
 // (output disabled for Variable type);
 
 // pwmMirrorAction flow acquisition
-// (setup input not implemented for PWM type);
+// (setup input disabled for PWM type);
 // pwmMirrorAction flow synthesis
-// (output not implemented for PWM type);
+void setup_pwmMirrorAction(void);
 
 // doDirFw flow acquisition
-///pinMode(PORT_doDirFw, INPUT);;
+void setup_doDirFw_input(void);
 // doDirFw flow synthesis
-///pinMode(PORT_doDirFw, OUTPUT);;
+void setup_doDirFw_output(void);
 
 // doDirBw flow acquisition
-///pinMode(PORT_doDirBw, INPUT);;
+void setup_doDirBw_input(void);
 // doDirBw flow synthesis
-///pinMode(PORT_doDirBw, OUTPUT);;
+void setup_doDirBw_output(void);
 
 // mirrorEnable flow acquisition
 // (setup input disabled for Variable type);
@@ -131,15 +139,30 @@ void setup_downReqDI(void);
 // mirrorDirection flow synthesis
 // (output disabled for Variable type);
 
-// rectifiedMirrorAction flow acquisition
+// rectifiedPwmMirrorAction flow acquisition
 // (setup input disabled for PWMDuty type);
-// rectifiedMirrorAction flow synthesis
+// rectifiedPwmMirrorAction flow synthesis
 // (output disabled for PWMDuty type);
 
 // rectifiedMirrorDirection flow acquisition
 // (setup input disabled for Variable type);
 // rectifiedMirrorDirection flow synthesis
 // (output disabled for Variable type);
+
+// mirrorPosAcq flow acquisition
+
+// mirrorPosAcq flow synthesis
+// (output disabled for ADC type);
+
+// appliedMirrorDirection flow acquisition
+// (setup input disabled for Variable type);
+// appliedMirrorDirection flow synthesis
+// (output disabled for Variable type);
+
+// mirrDrvTimer flow acquisition
+// (setup input disabled for Timer type);
+// mirrDrvTimer flow synthesis
+// (output disabled for Timer type);
 
 // Input / Output functions
 
@@ -170,12 +193,12 @@ void setup_downReqDI(void);
 // (output disabled for Variable type);
 
 // upReqDI flow acquisition
-BOOL acquire_upReqDI(void);
+BOOL adquirir_upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
 
 // downReqDI flow acquisition
-BOOL acquire_downReqDI(void);
+BOOL adquirir_downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
 
@@ -190,9 +213,9 @@ BOOL acquire_downReqDI(void);
 // (output disabled for Variable type);
 
 // pwmMirrorAction flow acquisition
-BOOL acquire_pwmMirrorAction(t_pwm *value);
+// (input disabled for PWM type);
 // pwmMirrorAction flow synthesis
-void synthesize_pwmMirrorAction(t_pwm *value);
+void synthesize_pwmMirrorAction(t_pwm value);
 
 // doDirFw flow acquisition
 BOOL adquirir_doDirFw(void);
@@ -214,9 +237,9 @@ void sintetizar_doDirBw(BOOL valor);
 // mirrorDirection flow synthesis
 // (output disabled for Variable type);
 
-// rectifiedMirrorAction flow acquisition
+// rectifiedPwmMirrorAction flow acquisition
 // (input disabled for PWMDuty type);
-// rectifiedMirrorAction flow synthesis
+// rectifiedPwmMirrorAction flow synthesis
 // (output disabled for PWMDuty type);
 
 // rectifiedMirrorDirection flow acquisition
@@ -224,5 +247,19 @@ void sintetizar_doDirBw(BOOL valor);
 // rectifiedMirrorDirection flow synthesis
 // (output disabled for Variable type);
 
+// mirrorPosAcq flow acquisition
+uint16_t acquire_mirrorPosAcq(void);
+// mirrorPosAcq flow synthesis
+// (output disabled for ADC type);
+
+// appliedMirrorDirection flow acquisition
+// (input disabled for Variable type);
+// appliedMirrorDirection flow synthesis
+// (output disabled for Variable type);
+
+// mirrDrvTimer flow acquisition
+// (input disabled for Timer type);
+// mirrDrvTimer flow synthesis
+// (output disabled for Timer type);
 
 #endif /* _DRE_H */

@@ -1,5 +1,5 @@
 #include "DRE.h"
-#include "prj_pinout.h"
+
 // --- DRE data structure declaration ---
 t_dre2 dre2;
 t_diag diag;
@@ -40,7 +40,7 @@ t_diag diag;
 
 // upReqDI flow acquisition
 void setup_upReqDI(void){
-/// DI_pu_setup(PORT_upReqDI,value);
+pinMode(PORT_upReqDI, INPUT_PULLUP);
 };
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -48,7 +48,7 @@ void setup_upReqDI(void){
 
 // downReqDI flow acquisition
 void setup_downReqDI(void){
-/// DI_pu_setup(PORT_downReqDI,value);
+pinMode(PORT_downReqDI, INPUT_PULLUP);
 };
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -67,21 +67,38 @@ void setup_downReqDI(void){
 
 
 // pwmMirrorAction flow acquisition
-// (setup input not implemented for PWM type)
+// (setup input disabled for PWM type)
 // pwmMirrorAction flow synthesis
-// (output not implemented for PWM type)
+void setup_pwmMirrorAction(void){
+#ifndef _PWM_RES_SET_
+#define _PWM_RES_SET_
+analogWriteResolution(CFG_PWM_RESOLUTION);
+#endif
+analogWriteFrequency(PORT_pwmMirrorAction, PORT_pwmMirrorAction_FREQ);
+};
+
 
 
 // doDirFw flow acquisition
-///pinMode(PORT_doDirFw, INPUT);
+void setup_doDirFw_input(void){
+pinMode(PORT_doDirFw, INPUT);
+};
+
 // doDirFw flow synthesis
-///pinMode(PORT_doDirFw, OUTPUT);
+void setup_doDirFw_output(void){
+pinMode(PORT_doDirFw, INPUT);
+};
 
 
 // doDirBw flow acquisition
-///pinMode(PORT_doDirBw, INPUT);
+void setup_doDirBw_input(void){
+pinMode(PORT_doDirBw, INPUT);
+};
+
 // doDirBw flow synthesis
-///pinMode(PORT_doDirBw, OUTPUT);
+void setup_doDirBw_output(void){
+pinMode(PORT_doDirBw, INPUT);
+};
 
 
 // mirrorEnable flow acquisition
@@ -96,9 +113,9 @@ void setup_downReqDI(void){
 // (output disabled for Variable type)
 
 
-// rectifiedMirrorAction flow acquisition
+// rectifiedPwmMirrorAction flow acquisition
 // (setup input disabled for PWMDuty type)
-// rectifiedMirrorAction flow synthesis
+// rectifiedPwmMirrorAction flow synthesis
 // (output disabled for PWMDuty type)
 
 
@@ -107,6 +124,23 @@ void setup_downReqDI(void){
 // rectifiedMirrorDirection flow synthesis
 // (output disabled for Variable type)
 
+
+// mirrorPosAcq flow acquisition
+
+// mirrorPosAcq flow synthesis
+// (output disabled for ADC type)
+
+
+// appliedMirrorDirection flow acquisition
+// (setup input disabled for Variable type)
+// appliedMirrorDirection flow synthesis
+// (output disabled for Variable type)
+
+
+// mirrDrvTimer flow acquisition
+// (setup input disabled for Timer type)
+// mirrDrvTimer flow synthesis
+// (output disabled for Timer type)
 
 
 // --- DRE flow acquisition and flow synthesis functions ---
@@ -143,34 +177,32 @@ void setup_downReqDI(void){
 
 
 // upReqDI flow acquisition
-BOOL acquire_upReqDI(void){
-/*#ifdef _DIAG_ACTIVE
+BOOL adquirir_upReqDI(void){
+#ifdef _DIAG_ACTIVE
 if (diag.enable_upReqDI==TRUE) {
 return diag.upReqDI;
 } else {
 #endif
-return DI_pu_read(PORT_upReqDI,value);
+return digitalRead(PORT_upReqDI);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-*/
 };
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
 
 // downReqDI flow acquisition
-BOOL acquire_downReqDI(void){
-/*#ifdef _DIAG_ACTIVE
+BOOL adquirir_downReqDI(void){
+#ifdef _DIAG_ACTIVE
 if (diag.enable_downReqDI==TRUE) {
 return diag.downReqDI;
 } else {
 #endif
-return DI_pu_read(PORT_downReqDI,value);
+return digitalRead(PORT_downReqDI);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-*/
 };
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -189,29 +221,28 @@ return DI_pu_read(PORT_downReqDI,value);
 
 
 // pwmMirrorAction flow acquisition
-BOOL acquire_pwmMirrorAction(t_pwm *value){
-///	return PWM_read(CANAL_pwmMirrorActionK,PORT_pwmMirrorAction,value);
-};
+// (input disabled for PWM type)
 // pwmMirrorAction flow synthesis
-void synthesize_pwmMirrorAction(t_pwm *value){
-///	PWM_write(PORT_pwmMirrorAction, CANAL_pwmMirrorAction, value);
+void synthesize_pwmMirrorAction(t_pwm value){
+analogWrite(PORT_pwmMirrorAction, value);
 };
+
 
 // doDirFw flow acquisition
 BOOL adquirir_doDirFw(void){
-/*#ifdef _DIAG_ACTIVE
+#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 return diag.doDirFw;
 } else {
 #endif
-return digitalRead(PORT_doDirFw,valor);
+return digitalRead(PORT_doDirFw);
 #ifdef _DIAG_ACTIVE
 }
-#endif*/
+#endif
 };
 // doDirFw flow synthesis
 void sintetizar_doDirFw(BOOL valor){
-/*#ifdef _DIAG_ACTIVE
+#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 digitalWrite(PORT_doDirFw,diag.doDirFw);
 } else {
@@ -220,25 +251,24 @@ digitalWrite(PORT_doDirFw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-*/
 };
 
 
 // doDirBw flow acquisition
 BOOL adquirir_doDirBw(void){
-/*#ifdef _DIAG_ACTIVE
+#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 return diag.doDirBw;
 } else {
 #endif
-return digitalRead(PORT_doDirBw,valor);
+return digitalRead(PORT_doDirBw);
 #ifdef _DIAG_ACTIVE
 }
-#endif*/
+#endif
 };
 // doDirBw flow synthesis
 void sintetizar_doDirBw(BOOL valor){
-/*#ifdef _DIAG_ACTIVE
+#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 digitalWrite(PORT_doDirBw,diag.doDirBw);
 } else {
@@ -247,7 +277,6 @@ digitalWrite(PORT_doDirBw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-*/
 };
 
 
@@ -263,9 +292,9 @@ digitalWrite(PORT_doDirBw,valor);
 // (output disabled for Variable type)
 
 
-// rectifiedMirrorAction flow acquisition
+// rectifiedPwmMirrorAction flow acquisition
 // (input disabled for PWMDuty type)
-// rectifiedMirrorAction flow synthesis
+// rectifiedPwmMirrorAction flow synthesis
 // (output disabled for PWMDuty type)
 
 
@@ -273,3 +302,24 @@ digitalWrite(PORT_doDirBw,valor);
 // (input disabled for Variable type)
 // rectifiedMirrorDirection flow synthesis
 // (output disabled for Variable type)
+
+
+// mirrorPosAcq flow acquisition
+uint16_t acquire_mirrorPosAcq(void){
+return analogRead(PORT_mirrorPosAcq);
+};
+// mirrorPosAcq flow synthesis
+// (output disabled for ADC type)
+
+
+// appliedMirrorDirection flow acquisition
+// (input disabled for Variable type)
+// appliedMirrorDirection flow synthesis
+// (output disabled for Variable type)
+
+
+// mirrDrvTimer flow acquisition
+// (input disabled for Timer type)
+// mirrDrvTimer flow synthesis
+// (output disabled for Timer type)
+

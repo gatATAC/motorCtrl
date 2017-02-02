@@ -18,9 +18,6 @@
 #define CFG_USE_MOTORCTRL
 #ifdef CFG_USE_MOTORCTRL
 
-#define PORT_upReqDI 3
-#define PORT_downReqDI 4
-
 #define CFG_MOTORCTRL_DIR_QUIET 0
 #define CFG_MOTORCTRL_DIR_FW 2
 #define CFG_MOTORCTRL_DIR_BW 6

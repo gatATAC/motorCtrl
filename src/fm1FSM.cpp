@@ -10,7 +10,6 @@ extern t_diag diag;
 #define appliedMirrorDirection (dre2.appliedMirrorDirection)
 #define mirrDrvTimer (dre2.mirrDrvTimer)
 #define mirrorDirection (dre2.mirrorDirection)
-#define rectifiedPwmActuation (dre2.rectifiedPwmActuation)
 
 /* ['MirrorRectifier' begin (DON'T REMOVE THIS LINE!)] */
 void MirrorRectifier(  )
@@ -188,7 +187,7 @@ void MirrorDriving(  )
             /* Actions: */
             /* ['<global>::stopActuation' begin] */
             t_pwm temp = (t_pwm)0;
-            synthesize_pwmMirrorAction(&temp);
+            synthesize_pwmMirrorAction(temp);
             /* ['<global>::stopActuation' end] */
             /* ['<global>::applyDirection' begin] */
             appliedMirrorDirection=mirrorDirection;
@@ -207,7 +206,7 @@ void MirrorDriving(  )
                 /* Transition ID: ID_MIRRORDRIVING_FROMSTABTOWORK */
                 /* Actions: */
                 /* ['<global>::applyActuation' begin] */
-                synthesize_pwmMirrorAction(&rectifiedPwmActuation);
+                synthesize_pwmMirrorAction(rectifiedPwmMirrorAction);
                 /* ['<global>::applyActuation' end] */
                 state = ID_MIRRORDRIVING_WORK;
             }
@@ -217,7 +216,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::applyDirection' begin] */
                 appliedMirrorDirection=mirrorDirection;
@@ -232,7 +231,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
                 state = ID_MIRRORDRIVING_STOP;
             }
@@ -242,7 +241,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
             }
             break;
@@ -256,7 +255,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::resetMirrorDriverTimer' begin] */
                 mirrDrvTimer=0L;
@@ -274,10 +273,10 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::applyActuation' begin] */
-                synthesize_pwmMirrorAction(&rectifiedPwmActuation);
+                synthesize_pwmMirrorAction(rectifiedPwmMirrorAction);
                 /* ['<global>::applyActuation' end] */
                 /* ['<global>::resetMirrorDriverTimer' begin] */
                 mirrDrvTimer=0L;
@@ -290,7 +289,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
             }
             break;
@@ -304,7 +303,7 @@ void MirrorDriving(  )
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 t_pwm temp = (t_pwm)0;
-                synthesize_pwmMirrorAction(&temp);
+                synthesize_pwmMirrorAction(temp);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::applyDirection' begin] */
                 appliedMirrorDirection=mirrorDirection;

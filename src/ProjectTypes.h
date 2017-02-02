@@ -30,8 +30,7 @@ typedef t_pwm t_pwm_duty;
 typedef t_mirrordirection t_rectifiedmirrordirection;
 typedef t_pwm_duty t_rectifiedpwmmirroraction;
 typedef t_mirrordirection t_appliedmirrordirection;
-typedef uint32_t t_mirrdrvtimer;
-typedef t_pwm_duty t_rectifiedpwmactuation;
+typedef uint32_t t_timer;
 
 #include "DRE.h"
 

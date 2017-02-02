@@ -87,7 +87,7 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">2</property>
                 <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                <property name="size" type="realpoint">36.000000,18.000000</property>
+                <property name="size" type="realpoint">31.000000,19.000000</property>
                 <property name="text" type="string">INIT</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -101,20 +101,6 @@
                 <property name="id" type="long">60030</property>
                 <property name="name" type="string">fromInitToDisable</property>
                 <property name="description" type="string">Initially, the state for the Motor Activation FSM is Disabled</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationQuiet</property>
-                  <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationQuiet</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
             <property name="source" type="long">1</property>
@@ -122,9 +108,9 @@
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">4</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["setActuationQuiet()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-172.000000,0.000000</property>
+                <property name="size" type="realpoint">400.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -144,52 +130,16 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">6</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">11.000000,5.000000</property>
+                <property name="size" type="realpoint">80.000000,19.000000</property>
                 <property name="text" type="string">DISABLED</property>
                 <property name="label_type" type="int">1</property>
               </object>
             </property>
           </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">7</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60031</property>
-                <property name="name" type="string">toEnable</property>
-                <property name="description" type="string">The actuation must be enabled.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">enabled</property>
-                  <property name="description" type="string">The mirror actuation is enabled.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::enabled</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorRectifier</property>
-                  <property name="description" type="string">Executes the rectifier FSM</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorRectifier</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">5</property>
-            <property name="target" type="long">9</property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">8</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;enabled() / [["execMirrorRectifier()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
           <object type="umlSimpleStateItem">
-            <property name="id" type="long">9</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
+            <property name="id" type="long">7</property>
+            <property name="relative_position" type="realpoint">209.000000,290.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udSimpleStateElementItem">
                 <property name="id" type="long">25</property>
@@ -201,49 +151,42 @@
             <property name="fill" type="brush">254,253,211,255 100</property>
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">10</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="id" type="long">8</property>
+                <property name="relative_position" type="realpoint">14.000000,5.000000</property>
+                <property name="size" type="realpoint">75.000000,19.000000</property>
                 <property name="text" type="string">ENABLED</property>
                 <property name="label_type" type="int">1</property>
               </object>
             </property>
           </object>
           <object type="umlTransitionItem">
-            <property name="id" type="long">11</property>
+            <property name="id" type="long">9</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
                 <property name="id" type="long">60033</property>
                 <property name="name" type="string">loop</property>
                 <property name="description" type="string">Loop to execute the enabled state machine for mirror driving.</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorRectifier</property>
-                  <property name="description" type="string">Executes the rectifier FSM</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorRectifier</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">9</property>
-            <property name="target" type="long">9</property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">7</property>
             <property name="control_points" type="listrealpoint">
-              <item>640.000000,280.000000</item>
-              <item>587.000000,295.000000</item>
+              <item>430.000000,430.000000</item>
+              <item>377.000000,445.000000</item>
             </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">12</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["execMirrorRectifier()"]] &gt;&gt;</property>
+                <property name="id" type="long">10</property>
+                <property name="relative_position" type="realpoint">-192.000000,-20.000000</property>
+                <property name="size" type="realpoint">247.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlTransitionItem">
-            <property name="id" type="long">13</property>
+            <property name="id" type="long">11</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
@@ -257,30 +200,51 @@
                   <property name="original_code" type="string">&lt;global&gt;::disabled</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
+              </object>
+            </property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">5</property>
+            <property name="control_points" type="listrealpoint">
+              <item>170.000000,220.000000</item>
+            </property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">12</property>
+                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
+                <property name="size" type="realpoint">475.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; disabled() / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">13</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60031</property>
+                <property name="name" type="string">toEnable</property>
+                <property name="description" type="string">The actuation must be enabled.</property>
+                <object type="udConditionLinkItem">
                   <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationQuiet</property>
-                  <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationQuiet</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
+                  <property name="name" type="string">enabled</property>
+                  <property name="description" type="string">The mirror actuation is enabled.</property>
+                  <property name="original_code" type="string">&lt;global&gt;::enabled</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
               </object>
             </property>
-            <property name="source" type="long">9</property>
-            <property name="target" type="long">5</property>
+            <property name="source" type="long">5</property>
+            <property name="target" type="long">7</property>
+            <property name="control_points" type="listrealpoint">
+              <item>650.000000,280.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">14</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;disabled() / [["setActuationQuiet()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
+                <property name="size" type="realpoint">319.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; enabled() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -300,128 +264,30 @@
         <property name="non_blocking" type="bool">1</property>
         <property name="inline" type="bool">0</property>
         <diagram>
-          <object type="umlInitialItem">
-            <property name="id" type="long">1</property>
-            <property name="relative_position" type="realpoint">170.000000,60.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udInitialElementItem">
-                <property name="id" type="long">30</property>
-                <property name="name" type="string">INIT</property>
-                <property name="description" type="string">Initial status.  To prevent reset problems, it has to transition to STABILIZE.</property>
-              </object>
-            </property>
-            <property name="size" type="realpoint">20.000000,20.000000</property>
-            <property name="fill" type="brush">0,0,0,255 100</property>
-            <property name="title" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">2</property>
-                <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                <property name="size" type="realpoint">36.000000,18.000000</property>
-                <property name="text" type="string">INIT</property>
-                <property name="label_type" type="int">1</property>
-              </object>
-            </property>
-          </object>
           <object type="umlTransitionItem">
-            <property name="id" type="long">3</property>
+            <property name="id" type="long">1</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
                 <property name="id" type="long">60040</property>
                 <property name="name" type="string">toStab</property>
                 <property name="description" type="string">From init to stabilize, in order to prevent undesired behaviour</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">applyDirection</property>
-                  <property name="description" type="string">Sets the actuation direction to equal the mirrorDirection.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::applyDirection</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">resetMirrorDriverTimer</property>
-                  <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">1</property>
-            <property name="target" type="long">5</property>
+            <property name="source" type="long">19</property>
+            <property name="target" type="long">7</property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">4</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["stopActuation()", "applyDirection()", "resetMirrorDriverTimer()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlSimpleStateItem">
-            <property name="id" type="long">5</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udSimpleStateElementItem">
-                <property name="id" type="long">31</property>
-                <property name="name" type="string">STABILIZE</property>
-                <property name="description" type="string">The relay system is waiting for stabilization time after a direction conmutation.</property>
-              </object>
-            </property>
-            <property name="size" type="realpoint">102.000000,50.000000</property>
-            <property name="fill" type="brush">254,253,211,255 100</property>
-            <property name="title" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">6</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
-                <property name="text" type="string">STABILIZE</property>
-                <property name="label_type" type="int">1</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">7</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60041</property>
-                <property name="name" type="string">stabLoop</property>
-                <property name="description" type="string">Stabilization loop</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">5</property>
-            <property name="target" type="long">5</property>
-            <property name="control_points" type="listrealpoint">
-              <item>640.000000,280.000000</item>
-              <item>587.000000,295.000000</item>
-            </property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">8</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["stopActuation()"]] &gt;&gt;</property>
+                <property name="id" type="long">2</property>
+                <property name="relative_position" type="realpoint">-312.000000,-10.000000</property>
+                <property name="size" type="realpoint">541.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlTransitionItem">
-            <property name="id" type="long">9</property>
+            <property name="id" type="long">3</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
@@ -435,23 +301,86 @@
                   <property name="original_code" type="string">&lt;global&gt;::stabTimeExpiredToMove</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">applyActuation</property>
-                  <property name="description" type="string">Applies the rectifiedPwmActuation to the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::applyActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
+              </object>
+            </property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">23</property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">4</property>
+                <property name="relative_position" type="realpoint">-212.000000,0.000000</property>
+                <property name="size" type="realpoint">414.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; stabTimeExpiredToMove() / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlSimpleStateItem">
+            <property name="id" type="long">5</property>
+            <property name="relative_position" type="realpoint">791.000000,304.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udSimpleStateElementItem">
+                <property name="id" type="long">34</property>
+                <property name="name" type="string">DISSIPATE</property>
+                <property name="description" type="string">The actuation was working (different from quiet) and the system has been told to change direction or stop.  The control will wait here for current dissipation in the devices involved in the commutation.</property>
+              </object>
+            </property>
+            <property name="size" type="realpoint">102.000000,50.000000</property>
+            <property name="fill" type="brush">254,253,211,255 100</property>
+            <property name="title" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">6</property>
+                <property name="relative_position" type="realpoint">11.000000,5.000000</property>
+                <property name="size" type="realpoint">80.000000,19.000000</property>
+                <property name="text" type="string">DISSIPATE</property>
+                <property name="label_type" type="int">1</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlSimpleStateItem">
+            <property name="id" type="long">7</property>
+            <property name="relative_position" type="realpoint">991.000000,154.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udSimpleStateElementItem">
+                <property name="id" type="long">31</property>
+                <property name="name" type="string">STABILIZE</property>
+                <property name="description" type="string">The relay system is waiting for stabilization time after a direction conmutation.</property>
+              </object>
+            </property>
+            <property name="size" type="realpoint">102.000000,50.000000</property>
+            <property name="fill" type="brush">254,253,211,255 100</property>
+            <property name="title" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">8</property>
+                <property name="relative_position" type="realpoint">11.000000,5.000000</property>
+                <property name="size" type="realpoint">81.000000,19.000000</property>
+                <property name="text" type="string">STABILIZE</property>
+                <property name="label_type" type="int">1</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">9</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60047</property>
+                <property name="name" type="string">dissipateLoop</property>
+                <property name="description" type="string">Waiting for power to dissipate</property>
               </object>
             </property>
             <property name="source" type="long">5</property>
-            <property name="target" type="long">15</property>
+            <property name="target" type="long">5</property>
+            <property name="control_points" type="listrealpoint">
+              <item>922.000000,414.000000</item>
+              <item>869.000000,429.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">10</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;stabTimeExpiredToMove() / [["applyActuation()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-172.000000,-10.000000</property>
+                <property name="size" type="realpoint">210.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -461,51 +390,23 @@
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
-                <property name="id" type="long">60044</property>
-                <property name="name" type="string">dirChangeDuringStab</property>
-                <property name="description" type="string">A new direction arrived during stabilization, the new direction has to be applied and the stab time has to be resetted.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">directionRequestChanged</property>
-                  <property name="description" type="string">The requested direction has been changed.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::directionRequestChanged</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">applyDirection</property>
-                  <property name="description" type="string">Sets the actuation direction to equal the mirrorDirection.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::applyDirection</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">resetMirrorDriverTimer</property>
-                  <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
+                <property name="id" type="long">60041</property>
+                <property name="name" type="string">stabLoop</property>
+                <property name="description" type="string">Stabilization loop</property>
               </object>
             </property>
-            <property name="source" type="long">5</property>
-            <property name="target" type="long">5</property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">7</property>
             <property name="control_points" type="listrealpoint">
-              <item>740.000000,280.000000</item>
-              <item>587.000000,395.000000</item>
+              <item>1442.000000,334.000000</item>
+              <item>1389.000000,349.000000</item>
             </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">12</property>
-                <property name="relative_position" type="realpoint">-142.000000,40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;directionRequestChanged() / [["stopActuation()", "applyDirection()", "resetMirrorDriverTimer()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
+                <property name="size" type="realpoint">210.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -525,95 +426,26 @@
                   <property name="original_code" type="string">&lt;global&gt;::stabTimeExpiredToStop</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">5</property>
-            <property name="target" type="long">19</property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">15</property>
+            <property name="control_points" type="listrealpoint">
+              <item>1302.000000,160.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">14</property>
-                <property name="relative_position" type="realpoint">-142.000000,40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;stabTimeExpiredToStop() / [["stopActuation()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-162.000000,-20.000000</property>
+                <property name="size" type="realpoint">403.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; stabTimeExpiredToStop() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlSimpleStateItem">
             <property name="id" type="long">15</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udSimpleStateElementItem">
-                <property name="id" type="long">32</property>
-                <property name="name" type="string">WORK</property>
-                <property name="description" type="string">The system is working: applying the desired direction to the actuator.</property>
-              </object>
-            </property>
-            <property name="size" type="realpoint">102.000000,50.000000</property>
-            <property name="fill" type="brush">254,253,211,255 100</property>
-            <property name="title" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">16</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
-                <property name="text" type="string">WORK</property>
-                <property name="label_type" type="int">1</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">17</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60045</property>
-                <property name="name" type="string">toDissipate</property>
-                <property name="description" type="string">The actuation is working and a new request arrived with different direction.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">directionRequestChanged</property>
-                  <property name="description" type="string">The requested direction has been changed.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::directionRequestChanged</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">resetMirrorDriverTimer</property>
-                  <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">15</property>
-            <property name="target" type="long">23</property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">18</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;directionRequestChanged() / [["stopActuation()", "resetMirrorDriverTimer()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlSimpleStateItem">
-            <property name="id" type="long">19</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
+            <property name="relative_position" type="realpoint">1411.000000,84.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udSimpleStateElementItem">
                 <property name="id" type="long">33</property>
@@ -625,10 +457,57 @@
             <property name="fill" type="brush">254,253,211,255 100</property>
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">20</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="id" type="long">16</property>
+                <property name="relative_position" type="realpoint">30.000000,5.000000</property>
+                <property name="size" type="realpoint">42.000000,19.000000</property>
                 <property name="text" type="string">STOP</property>
+                <property name="label_type" type="int">1</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">17</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60046</property>
+                <property name="name" type="string">fromStopToStabilize</property>
+                <property name="description" type="string">After having stabilized and currently in STOP, if a new request arrives, the dirrection can be directly applicated without having to dissipate the power, so directly goes to STABILIZE.</property>
+              </object>
+            </property>
+            <property name="source" type="long">15</property>
+            <property name="target" type="long">7</property>
+            <property name="control_points" type="listrealpoint">
+              <item>1321.000000,30.000000</item>
+            </property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">18</property>
+                <property name="relative_position" type="realpoint">-362.000000,10.000000</property>
+                <property name="size" type="realpoint">541.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlInitialItem">
+            <property name="id" type="long">19</property>
+            <property name="relative_position" type="realpoint">812.000000,44.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udInitialElementItem">
+                <property name="id" type="long">30</property>
+                <property name="name" type="string">INIT</property>
+                <property name="description" type="string">Initial status.  To prevent reset problems, it has to transition to STABILIZE.</property>
+              </object>
+            </property>
+            <property name="size" type="realpoint">20.000000,20.000000</property>
+            <property name="fill" type="brush">0,0,0,255 100</property>
+            <property name="title" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">20</property>
+                <property name="relative_position" type="realpoint">0.000000,25.000000</property>
+                <property name="size" type="realpoint">31.000000,19.000000</property>
+                <property name="text" type="string">INIT</property>
                 <property name="label_type" type="int">1</property>
               </object>
             </property>
@@ -638,59 +517,34 @@
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
-                <property name="id" type="long">60046</property>
-                <property name="name" type="string">fromStopToStabilize</property>
-                <property name="description" type="string">After having stabilized and currently in STOP, if a new request arrives, the dirrection can be directly applicated without having to dissipate the power, so directly goes to STABILIZE.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">directionRequestChanged</property>
-                  <property name="description" type="string">The requested direction has been changed.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::directionRequestChanged</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">applyDirection</property>
-                  <property name="description" type="string">Sets the actuation direction to equal the mirrorDirection.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::applyDirection</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">resetMirrorDriverTimer</property>
-                  <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
+                <property name="id" type="long">60045</property>
+                <property name="name" type="string">toDissipate</property>
+                <property name="description" type="string">The actuation is working and a new request arrived with different direction.</property>
               </object>
             </property>
-            <property name="source" type="long">19</property>
+            <property name="source" type="long">23</property>
             <property name="target" type="long">5</property>
+            <property name="control_points" type="listrealpoint">
+              <item>402.000000,240.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">22</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;directionRequestChanged() / [["stopActuation()", "applyDirection()", "resetMirrorDriverTimer()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-242.000000,40.000000</property>
+                <property name="size" type="realpoint">409.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlSimpleStateItem">
             <property name="id" type="long">23</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
+            <property name="relative_position" type="realpoint">421.000000,104.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udSimpleStateElementItem">
-                <property name="id" type="long">34</property>
-                <property name="name" type="string">DISSIPATE</property>
-                <property name="description" type="string">The actuation was working (different from quiet) and the system has been told to change direction or stop.  The control will wait here for current dissipation in the devices involved in the commutation.</property>
+                <property name="id" type="long">32</property>
+                <property name="name" type="string">WORK</property>
+                <property name="description" type="string">The system is working: applying the desired direction to the actuator.</property>
               </object>
             </property>
             <property name="size" type="realpoint">102.000000,50.000000</property>
@@ -698,15 +552,41 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">24</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
-                <property name="text" type="string">DISSIPATE</property>
+                <property name="relative_position" type="realpoint">26.000000,5.000000</property>
+                <property name="size" type="realpoint">51.000000,19.000000</property>
+                <property name="text" type="string">WORK</property>
                 <property name="label_type" type="int">1</property>
               </object>
             </property>
           </object>
           <object type="umlTransitionItem">
             <property name="id" type="long">25</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60044</property>
+                <property name="name" type="string">dirChangeDuringStab</property>
+                <property name="description" type="string">A new direction arrived during stabilization, the new direction has to be applied and the stab time has to be resetted.</property>
+              </object>
+            </property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">7</property>
+            <property name="control_points" type="listrealpoint">
+              <item>1232.000000,384.000000</item>
+              <item>1079.000000,499.000000</item>
+            </property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">26</property>
+                <property name="relative_position" type="realpoint">-142.000000,40.000000</property>
+                <property name="size" type="realpoint">541.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">27</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
@@ -720,70 +600,19 @@
                   <property name="original_code" type="string">&lt;global&gt;::dissipTimeExpired</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">applyActuation</property>
-                  <property name="description" type="string">Applies the rectifiedPwmActuation to the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::applyActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">resetMirrorDriverTimer</property>
-                  <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">23</property>
-            <property name="target" type="long">5</property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">26</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;dissipTimeExpired() / [["stopActuation()", "applyActuation()", "resetMirrorDriverTimer()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">27</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60047</property>
-                <property name="name" type="string">dissipateLoop</property>
-                <property name="description" type="string">Waiting for power to dissipate</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">stopActuation</property>
-                  <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::stopActuation</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">23</property>
-            <property name="target" type="long">23</property>
+            <property name="source" type="long">5</property>
+            <property name="target" type="long">7</property>
             <property name="control_points" type="listrealpoint">
-              <item>640.000000,280.000000</item>
-              <item>587.000000,295.000000</item>
+              <item>885.000000,253.000000</item>
             </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">28</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["stopActuation()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-452.000000,-20.000000</property>
+                <property name="size" type="realpoint">697.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; dissipTimeExpired() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -805,7 +634,7 @@
         <diagram>
           <object type="umlInitialItem">
             <property name="id" type="long">1</property>
-            <property name="relative_position" type="realpoint">170.000000,60.000000</property>
+            <property name="relative_position" type="realpoint">452.000000,60.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udInitialElementItem">
                 <property name="id" type="long">26</property>
@@ -818,8 +647,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">2</property>
-                <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                <property name="size" type="realpoint">36.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">30.000000,-15.000000</property>
+                <property name="size" type="realpoint">31.000000,19.000000</property>
                 <property name="text" type="string">INIT</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -833,20 +662,6 @@
                 <property name="id" type="long">60034</property>
                 <property name="name" type="string">fromInitToQuiet</property>
                 <property name="description" type="string">The initial transition must stop any driving activity.</property>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationQuiet</property>
-                  <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationQuiet</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
             <property name="source" type="long">1</property>
@@ -854,16 +669,16 @@
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">4</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["setActuationQuiet()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-312.000000,-20.000000</property>
+                <property name="size" type="realpoint">400.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlSimpleStateItem">
             <property name="id" type="long">5</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
+            <property name="relative_position" type="realpoint">601.000000,150.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udSimpleStateElementItem">
                 <property name="id" type="long">27</property>
@@ -876,15 +691,70 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">6</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">27.000000,5.000000</property>
+                <property name="size" type="realpoint">49.000000,19.000000</property>
                 <property name="text" type="string">QUIET</property>
                 <property name="label_type" type="int">1</property>
               </object>
             </property>
           </object>
-          <object type="umlTransitionItem">
+          <object type="umlSimpleStateItem">
             <property name="id" type="long">7</property>
+            <property name="relative_position" type="realpoint">491.000000,310.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udSimpleStateElementItem">
+                <property name="id" type="long">29</property>
+                <property name="name" type="string">BW</property>
+                <property name="description" type="string">The driver must command negative action.</property>
+              </object>
+            </property>
+            <property name="size" type="realpoint">102.000000,50.000000</property>
+            <property name="fill" type="brush">254,253,211,255 100</property>
+            <property name="title" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">8</property>
+                <property name="relative_position" type="realpoint">38.000000,5.000000</property>
+                <property name="size" type="realpoint">27.000000,19.000000</property>
+                <property name="text" type="string">BW</property>
+                <property name="label_type" type="int">1</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">9</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60039</property>
+                <property name="name" type="string">bwLoop</property>
+                <property name="description" type="string">The actuation must stay in negative direction.</property>
+                <object type="udConditionLinkItem">
+                  <property name="id" type="long">-1</property>
+                  <property name="name" type="string">negativeActionRequested</property>
+                  <property name="description" type="string">A negative action has been requested (lesser than zero)</property>
+                  <property name="original_code" type="string">&lt;global&gt;::negativeActionRequested</property>
+                  <property name="scope" type="string">&lt;global&gt;</property>
+                </object>
+              </object>
+            </property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">7</property>
+            <property name="control_points" type="listrealpoint">
+              <item>602.000000,440.000000</item>
+              <item>549.000000,455.000000</item>
+            </property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">10</property>
+                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
+                <property name="size" type="realpoint">766.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; negativeActionRequested() / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">11</property>
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
@@ -898,110 +768,20 @@
                   <property name="original_code" type="string">&lt;global&gt;::negativeActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationModule</property>
-                  <property name="description" type="string">The actuation output must equal the module of the actuation request.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationModule</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationBw</property>
-                  <property name="description" type="string">Sets the direction of the actuators to move in Bw position.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationBw</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
             <property name="source" type="long">5</property>
-            <property name="target" type="long">17</property>
+            <property name="target" type="long">7</property>
+            <property name="control_points" type="listrealpoint">
+              <item>710.000000,290.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">8</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;negativeActionRequested() / [["setActuationModule()", "setActuationBw()", "execMirrorDriving()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">9</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60035</property>
-                <property name="name" type="string">fromQuietToFw</property>
-                <property name="description" type="string">The movement has to start in Fw direction.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">positiveActionRequested</property>
-                  <property name="description" type="string">A positive action has been requested (greater than zero)</property>
-                  <property name="original_code" type="string">&lt;global&gt;::positiveActionRequested</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationModule</property>
-                  <property name="description" type="string">The actuation output must equal the module of the actuation request.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationModule</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationFw</property>
-                  <property name="description" type="string">Sets the direction of the actuators to move in Fw position.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationFw</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">5</property>
-            <property name="target" type="long">11</property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
-                <property name="id" type="long">10</property>
-                <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execMirrorDriving()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlSimpleStateItem">
-            <property name="id" type="long">11</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udSimpleStateElementItem">
-                <property name="id" type="long">28</property>
-                <property name="name" type="string">FW</property>
-                <property name="description" type="string">The driver must command positive action.</property>
-              </object>
-            </property>
-            <property name="size" type="realpoint">102.000000,50.000000</property>
-            <property name="fill" type="brush">254,253,211,255 100</property>
-            <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">12</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
-                <property name="text" type="string">FW</property>
-                <property name="label_type" type="int">1</property>
+                <property name="relative_position" type="realpoint">-352.000000,-60.000000</property>
+                <property name="size" type="realpoint">766.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; negativeActionRequested() / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
@@ -1010,9 +790,9 @@
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
-                <property name="id" type="long">60037</property>
-                <property name="name" type="string">fwLoop</property>
-                <property name="description" type="string">The actuator must keep moving in FW.</property>
+                <property name="id" type="long">60049</property>
+                <property name="name" type="string">fromBwToFw</property>
+                <property name="description" type="string">The action direction changes from BW to FW</property>
                 <object type="udConditionLinkItem">
                   <property name="id" type="long">-1</property>
                   <property name="name" type="string">positiveActionRequested</property>
@@ -1020,41 +800,19 @@
                   <property name="original_code" type="string">&lt;global&gt;::positiveActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationModule</property>
-                  <property name="description" type="string">The actuation output must equal the module of the actuation request.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationModule</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationFw</property>
-                  <property name="description" type="string">Sets the direction of the actuators to move in Fw position.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationFw</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">11</property>
-            <property name="target" type="long">11</property>
+            <property name="source" type="long">7</property>
+            <property name="target" type="long">19</property>
             <property name="control_points" type="listrealpoint">
-              <item>640.000000,280.000000</item>
-              <item>587.000000,295.000000</item>
+              <item>939.000000,365.000000</item>
             </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">14</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-222.000000,-40.000000</property>
+                <property name="size" type="realpoint">758.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; positiveActionRequested() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -1074,107 +832,74 @@
                   <property name="original_code" type="string">&lt;global&gt;::noActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
+              </object>
+            </property>
+            <property name="source" type="long">19</property>
+            <property name="target" type="long">5</property>
+            <property name="control_points" type="listrealpoint">
+              <item>970.000000,170.000000</item>
+            </property>
+            <property name="label" type="serializabledynamicnocreate">
+              <object type="uddLabelElement">
+                <property name="id" type="long">16</property>
+                <property name="relative_position" type="realpoint">-232.000000,-10.000000</property>
+                <property name="size" type="realpoint">563.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; noActionRequested() / [] &gt;&gt;</property>
+                <property name="label_type" type="int">3</property>
+              </object>
+            </property>
+          </object>
+          <object type="umlTransitionItem">
+            <property name="id" type="long">17</property>
+            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
+            <property name="user_data" type="serializabledynamic">
+              <object type="udTransElementItem">
+                <property name="id" type="long">60035</property>
+                <property name="name" type="string">fromQuietToFw</property>
+                <property name="description" type="string">The movement has to start in Fw direction.</property>
+                <object type="udConditionLinkItem">
                   <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationQuiet</property>
-                  <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationQuiet</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
+                  <property name="name" type="string">positiveActionRequested</property>
+                  <property name="description" type="string">A positive action has been requested (greater than zero)</property>
+                  <property name="original_code" type="string">&lt;global&gt;::positiveActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
               </object>
             </property>
-            <property name="source" type="long">11</property>
-            <property name="target" type="long">5</property>
+            <property name="source" type="long">5</property>
+            <property name="target" type="long">19</property>
+            <property name="control_points" type="listrealpoint">
+              <item>850.000000,100.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">16</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;noActionRequested() / [["setActuationQuiet()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="id" type="long">18</property>
+                <property name="relative_position" type="realpoint">-222.000000,10.000000</property>
+                <property name="size" type="realpoint">758.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; positiveActionRequested() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
           </object>
           <object type="umlSimpleStateItem">
-            <property name="id" type="long">17</property>
-            <property name="relative_position" type="realpoint">319.000000,150.000000</property>
+            <property name="id" type="long">19</property>
+            <property name="relative_position" type="realpoint">1381.000000,120.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udSimpleStateElementItem">
-                <property name="id" type="long">29</property>
-                <property name="name" type="string">BW</property>
-                <property name="description" type="string">The driver must command negative action.</property>
+                <property name="id" type="long">28</property>
+                <property name="name" type="string">FW</property>
+                <property name="description" type="string">The driver must command positive action.</property>
               </object>
             </property>
             <property name="size" type="realpoint">102.000000,50.000000</property>
             <property name="fill" type="brush">254,253,211,255 100</property>
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
-                <property name="id" type="long">18</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
-                <property name="text" type="string">BW</property>
-                <property name="label_type" type="int">1</property>
-              </object>
-            </property>
-          </object>
-          <object type="umlTransitionItem">
-            <property name="id" type="long">19</property>
-            <property name="relative_position" type="realpoint">0.000000,0.000000</property>
-            <property name="user_data" type="serializabledynamic">
-              <object type="udTransElementItem">
-                <property name="id" type="long">60039</property>
-                <property name="name" type="string">bwLoop</property>
-                <property name="description" type="string">The actuation must stay in negative direction.</property>
-                <object type="udConditionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">negativeActionRequested</property>
-                  <property name="description" type="string">A negative action has been requested (lesser than zero)</property>
-                  <property name="original_code" type="string">&lt;global&gt;::negativeActionRequested</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationModule</property>
-                  <property name="description" type="string">The actuation output must equal the module of the actuation request.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationModule</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationBw</property>
-                  <property name="description" type="string">Sets the direction of the actuators to move in Bw position.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationBw</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-              </object>
-            </property>
-            <property name="source" type="long">17</property>
-            <property name="target" type="long">17</property>
-            <property name="control_points" type="listrealpoint">
-              <item>640.000000,280.000000</item>
-              <item>587.000000,295.000000</item>
-            </property>
-            <property name="label" type="serializabledynamicnocreate">
-              <object type="uddLabelElement">
                 <property name="id" type="long">20</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;negativeActionRequested() / [["setActuationModule()", "setActuationBw()", "execMirrorDriving()"]] &gt;&gt;</property>
-                <property name="label_type" type="int">3</property>
+                <property name="relative_position" type="realpoint">38.000000,5.000000</property>
+                <property name="size" type="realpoint">26.000000,19.000000</property>
+                <property name="text" type="string">FW</property>
+                <property name="label_type" type="int">1</property>
               </object>
             </property>
           </object>
@@ -1183,9 +908,9 @@
             <property name="relative_position" type="realpoint">0.000000,0.000000</property>
             <property name="user_data" type="serializabledynamic">
               <object type="udTransElementItem">
-                <property name="id" type="long">60049</property>
-                <property name="name" type="string">fromBwToFw</property>
-                <property name="description" type="string">The action direction changes from BW to FW</property>
+                <property name="id" type="long">60037</property>
+                <property name="name" type="string">fwLoop</property>
+                <property name="description" type="string">The actuator must keep moving in FW.</property>
                 <object type="udConditionLinkItem">
                   <property name="id" type="long">-1</property>
                   <property name="name" type="string">positiveActionRequested</property>
@@ -1193,37 +918,20 @@
                   <property name="original_code" type="string">&lt;global&gt;::positiveActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationModule</property>
-                  <property name="description" type="string">The actuation output must equal the module of the actuation request.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationModule</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationFw</property>
-                  <property name="description" type="string">Sets the direction of the actuators to move in Fw position.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationFw</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">17</property>
-            <property name="target" type="long">11</property>
+            <property name="source" type="long">19</property>
+            <property name="target" type="long">19</property>
+            <property name="control_points" type="listrealpoint">
+              <item>1442.000000,20.000000</item>
+              <item>1389.000000,35.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">22</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-462.000000,10.000000</property>
+                <property name="size" type="realpoint">758.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; positiveActionRequested() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -1243,30 +951,19 @@
                   <property name="original_code" type="string">&lt;global&gt;::noActionRequested</property>
                   <property name="scope" type="string">&lt;global&gt;</property>
                 </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">setActuationQuiet</property>
-                  <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::setActuationQuiet</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
-                <object type="udActionLinkItem">
-                  <property name="id" type="long">-1</property>
-                  <property name="name" type="string">execMirrorDriving</property>
-                  <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
-                  <property name="original_code" type="string">&lt;global&gt;::execMirrorDriving</property>
-                  <property name="scope" type="string">&lt;global&gt;</property>
-                </object>
               </object>
             </property>
-            <property name="source" type="long">17</property>
+            <property name="source" type="long">7</property>
             <property name="target" type="long">5</property>
+            <property name="control_points" type="listrealpoint">
+              <item>262.000000,200.000000</item>
+            </property>
             <property name="label" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">24</property>
-                <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;noActionRequested() / [["setActuationQuiet()", "execMirrorDriving()"]] &gt;&gt;</property>
+                <property name="relative_position" type="realpoint">-192.000000,0.000000</property>
+                <property name="size" type="realpoint">563.000000,19.000000</property>
+                <property name="text" type="string">&lt;&lt; noActionRequested() / [] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -1330,7 +1027,7 @@
       <property name="description" type="string">The requested direction has been changed.</property>
       <property name="code" type="string">appliedMirrorDirection!=mirrorDirection</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::directionRequestChanged</property>
+      <property name="signature" type="string">&lt;global&gt;::directionRequestChanged#50009</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">1</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1419,7 +1116,7 @@
       <property name="code" type="string">rectifiedPwmMirrorAction=(t_pwm)0; 
 mirrorDirection=CFG_MIRROR_DIRECTION_QUIET;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::setActuationQuiet</property>
+      <property name="signature" type="string">&lt;global&gt;::setActuationQuiet#50016</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1433,7 +1130,7 @@ mirrorDirection=CFG_MIRROR_DIRECTION_QUIET;</property>
       <property name="description" type="string">This action is used to execute the submachine MirrorActuation.</property>
       <property name="code" type="string">MirrorDriving();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::execMirrorDriving</property>
+      <property name="signature" type="string">&lt;global&gt;::execMirrorDriving#50017</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1447,7 +1144,7 @@ mirrorDirection=CFG_MIRROR_DIRECTION_QUIET;</property>
       <property name="description" type="string">Executes the rectifier FSM</property>
       <property name="code" type="string">MirrorRectifier();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::execMirrorRectifier</property>
+      <property name="signature" type="string">&lt;global&gt;::execMirrorRectifier#50018</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1460,9 +1157,9 @@ mirrorDirection=CFG_MIRROR_DIRECTION_QUIET;</property>
       <property name="name" type="string">stopActuation</property>
       <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
       <property name="code" type="string">t_pwm temp = (t_pwm)0;
-synthesize_pwmMirrorAction(&amp;temp);</property>
+synthesize_pwmMirrorAction(temp);</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::stopActuation</property>
+      <property name="signature" type="string">&lt;global&gt;::stopActuation#50019</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1476,7 +1173,7 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
       <property name="description" type="string">Sets the actuation direction to equal the mirrorDirection.</property>
       <property name="code" type="string">appliedMirrorDirection=mirrorDirection;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::applyDirection</property>
+      <property name="signature" type="string">&lt;global&gt;::applyDirection#50020</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1490,7 +1187,7 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
       <property name="description" type="string">Resets the timer of the Mirror Driver.</property>
       <property name="code" type="string">mirrDrvTimer=0L;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::resetMirrorDriverTimer</property>
+      <property name="signature" type="string">&lt;global&gt;::resetMirrorDriverTimer#50021</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1502,9 +1199,9 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
       <property name="id" type="long">50022</property>
       <property name="name" type="string">applyActuation</property>
       <property name="description" type="string">Applies the rectifiedPwmActuation to the PWM channel.</property>
-      <property name="code" type="string">void synthesize_pwmMirrorAction(&amp;rectifiedPwmActuation);</property>
+      <property name="code" type="string">void synthesize_pwmMirrorAction(rectifiedPwmMirrorAction);</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::applyActuation</property>
+      <property name="signature" type="string">&lt;global&gt;::applyActuation#50022</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1523,7 +1220,7 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
 }
 </property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::setActuationModule</property>
+      <property name="signature" type="string">&lt;global&gt;::setActuationModule#50023</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1537,7 +1234,7 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
       <property name="description" type="string">Sets the direction of the actuators to move in Bw position.</property>
       <property name="code" type="string">mirrorDirection=CFG_MIRROR_DIRECTION_BW;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::setActuationBw</property>
+      <property name="signature" type="string">&lt;global&gt;::setActuationBw#50024</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1551,7 +1248,7 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
       <property name="description" type="string">Sets the direction of the actuators to move in Fw position.</property>
       <property name="code" type="string">mirrorDirection=CFG_MIRROR_DIRECTION_FW;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::setActuationFw</property>
+      <property name="signature" type="string">&lt;global&gt;::setActuationFw#50025</property>
       <property name="inline" type="bool">1</property>
       <property name="retval_data_type" type="int">10</property>
       <property name="retval_value_type" type="int">0</property>
@@ -1563,19 +1260,6 @@ synthesize_pwmMirrorAction(&amp;temp);</property>
   <object type="udCodePackageItem">
     <property name="id" type="long">50026</property>
     <property name="name" type="string">Generic functions</property>
-    <object type="udGenericFunctionItem">
-      <property name="id" type="long">50027</property>
-      <property name="name" type="string">action_subtask_function</property>
-      <property name="description" type="string">action_subtask_function_description</property>
-      <property name="scope" type="string">&lt;global&gt;</property>
-      <property name="signature" type="string">&lt;global&gt;::action_subtask_function</property>
-      <property name="inline" type="bool">1</property>
-      <property name="retval_data_type" type="int">10</property>
-      <property name="retval_value_type" type="int">0</property>
-      <property name="retval_data_modifier" type="int">0</property>
-      <property name="user_retval_decl_place" type="int">0</property>
-      <property name="function_modifier" type="int">0</property>
-    </object>
   </object>
   <object type="udCodePackageItem">
     <property name="id" type="long">50028</property>
