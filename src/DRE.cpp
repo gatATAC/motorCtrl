@@ -1,7 +1,7 @@
 #include "DRE.h"
 #include "prj_pinout.h"
 // --- DRE data structure declaration ---
-t_dre dre;
+t_dre2 dre2;
 t_diag diag;
 
 // --- DRE flow initialization functions ---
@@ -39,17 +39,17 @@ t_diag diag;
 
 
 // upReqDI flow acquisition
-///void setup_upReqDI(void){
+void setup_upReqDI(void){
 /// DI_pu_setup(PORT_upReqDI,value);
-///};
+};
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
 
 // downReqDI flow acquisition
-///void setup_downReqDI(void){
+void setup_downReqDI(void){
 /// DI_pu_setup(PORT_downReqDI,value);
-///};
+};
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
 
@@ -143,8 +143,8 @@ t_diag diag;
 
 
 // upReqDI flow acquisition
-/*BOOL acquire_upReqDI(void){
-#ifdef _DIAG_ACTIVE
+BOOL acquire_upReqDI(void){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_upReqDI==TRUE) {
 return diag.upReqDI;
 } else {
@@ -153,14 +153,15 @@ return DI_pu_read(PORT_upReqDI,value);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};*/
+*/
+};
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
 
 // downReqDI flow acquisition
-/*BOOL acquire_downReqDI(void){
-#ifdef _DIAG_ACTIVE
+BOOL acquire_downReqDI(void){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_downReqDI==TRUE) {
 return diag.downReqDI;
 } else {
@@ -169,7 +170,8 @@ return DI_pu_read(PORT_downReqDI,value);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};*/
+*/
+};
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
 
@@ -187,18 +189,17 @@ return DI_pu_read(PORT_downReqDI,value);
 
 
 // pwmMirrorAction flow acquisition
-/*BOOL acquire_pwmMirrorAction(t_pwm *value){
-	return PWM_read(CANAL_pwmMirrorActionK,PORT_pwmMirrorAction,value);
-};*/
+BOOL acquire_pwmMirrorAction(t_pwm *value){
+///	return PWM_read(CANAL_pwmMirrorActionK,PORT_pwmMirrorAction,value);
+};
 // pwmMirrorAction flow synthesis
-/*void synthesize_pwmMirrorAction(t_pwm *value){
-	PWM_write(PORT_pwmMirrorAction, CANAL_pwmMirrorAction, value);
-};&quot;
-*/
+void synthesize_pwmMirrorAction(t_pwm *value){
+///	PWM_write(PORT_pwmMirrorAction, CANAL_pwmMirrorAction, value);
+};
 
 // doDirFw flow acquisition
-/*BOOL adquirir_doDirFw(void){
-#ifdef _DIAG_ACTIVE
+BOOL adquirir_doDirFw(void){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 return diag.doDirFw;
 } else {
@@ -206,11 +207,11 @@ return diag.doDirFw;
 return digitalRead(PORT_doDirFw,valor);
 #ifdef _DIAG_ACTIVE
 }
-#endif
-};*/
+#endif*/
+};
 // doDirFw flow synthesis
-/*void sintetizar_doDirFw(BOOL valor){
-#ifdef _DIAG_ACTIVE
+void sintetizar_doDirFw(BOOL valor){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirFw==TRUE) {
 digitalWrite(PORT_doDirFw,diag.doDirFw);
 } else {
@@ -219,12 +220,13 @@ digitalWrite(PORT_doDirFw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};*/
+*/
+};
 
 
 // doDirBw flow acquisition
-/*BOOL adquirir_doDirBw(void){
-#ifdef _DIAG_ACTIVE
+BOOL adquirir_doDirBw(void){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 return diag.doDirBw;
 } else {
@@ -232,11 +234,11 @@ return diag.doDirBw;
 return digitalRead(PORT_doDirBw,valor);
 #ifdef _DIAG_ACTIVE
 }
-#endif
-};*/
+#endif*/
+};
 // doDirBw flow synthesis
-/*void sintetizar_doDirBw(BOOL valor){
-#ifdef _DIAG_ACTIVE
+void sintetizar_doDirBw(BOOL valor){
+/*#ifdef _DIAG_ACTIVE
 if (diag.enable_doDirBw==TRUE) {
 digitalWrite(PORT_doDirBw,diag.doDirBw);
 } else {
@@ -245,7 +247,8 @@ digitalWrite(PORT_doDirBw,valor);
 #ifdef _DIAG_ACTIVE
 }
 #endif
-};*/
+*/
+};
 
 
 // mirrorEnable flow acquisition

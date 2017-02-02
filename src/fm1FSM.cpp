@@ -3,13 +3,14 @@
 #include "fm1FSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
-extern t_dre dre;
+extern t_dre2 dre2;
 extern t_diag diag;
 
-#define rectifiedPwmMirrorAction (dre.rectifiedPwmMirrorAction)
-#define appliedMirrorDirection (dre.appliedMirrorDirection)
-#define mirrDrvTimer (dre.mirrDrvTimer)
-#define mirrorDirection (dre.mirrorDirection)
+#define rectifiedPwmMirrorAction (dre2.rectifiedPwmMirrorAction)
+#define appliedMirrorDirection (dre2.appliedMirrorDirection)
+#define mirrDrvTimer (dre2.mirrDrvTimer)
+#define mirrorDirection (dre2.mirrorDirection)
+#define rectifiedPwmActuation (dre2.rectifiedPwmActuation)
 
 /* ['MirrorRectifier' begin (DON'T REMOVE THIS LINE!)] */
 void MirrorRectifier(  )
@@ -206,7 +207,7 @@ void MirrorDriving(  )
                 /* Transition ID: ID_MIRRORDRIVING_FROMSTABTOWORK */
                 /* Actions: */
                 /* ['<global>::applyActuation' begin] */
-                void synthesize_pwmMirrorAction(&rectifiedPwmActuation);
+                synthesize_pwmMirrorAction(&rectifiedPwmActuation);
                 /* ['<global>::applyActuation' end] */
                 state = ID_MIRRORDRIVING_WORK;
             }
@@ -276,7 +277,7 @@ void MirrorDriving(  )
                 synthesize_pwmMirrorAction(&temp);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::applyActuation' begin] */
-                void synthesize_pwmMirrorAction(&rectifiedPwmActuation);
+                synthesize_pwmMirrorAction(&rectifiedPwmActuation);
                 /* ['<global>::applyActuation' end] */
                 /* ['<global>::resetMirrorDriverTimer' begin] */
                 mirrDrvTimer=0L;

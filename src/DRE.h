@@ -22,7 +22,10 @@ t_mirrordirection mirrorDirection;
 t_pwm_duty rectifiedMirrorAction;
 t_rectifiedmirrordirection rectifiedMirrorDirection;
 t_rectifiedpwmmirroraction rectifiedPwmMirrorAction;
-} t_dre;
+t_appliedmirrordirection appliedMirrorDirection;
+t_mirrdrvtimer mirrDrvTimer;
+t_rectifiedpwmactuation rectifiedPwmActuation;
+} t_dre2;
 
 typedef struct {
 // (null) No diag variables for upReq
@@ -53,8 +56,6 @@ t_mirrordirection mirrorDirection;
 BOOL enable_rectifiedMirrorAction;
 t_pwm_duty rectifiedMirrorAction;
 BOOL enable_rectifiedMirrorDirection;
-t_rectifiedmirrordirection rectifiedMirrorDirection;
-
 } t_diag;
 
 // Initialization functions
