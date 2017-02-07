@@ -15,9 +15,12 @@
 #define CFG_MAX_TIMER 20000000L
 //#define CFG_USE_RGB_LEDS 1
 
+#define CFG_USE_MOTORCTRL 1
 #ifdef CFG_USE_MOTORCTRL
 
 #define CFG_MOTORCTRL_DIR_QUIET 0
+#define CFG_MOTORCTRL_DIR_FW 1
+#define CFG_MOTORCTRL_DIR_BW 2
 
 #define CFG_MOTORCTRL_IN3_PIN 8
 #define CFG_MOTORCTRL_IN4_PIN 7
@@ -27,6 +30,9 @@
 #define CFG_MOTORCTRL_WAIT_TIME_BEFORE 1000000L
 #define CFG_MOTORCTRL_WAIT_TIME_AFTER 1000000L
 #define CFG_MOTORCTRL_PWM_INCR_TIME 20000L
+#define CFG_MOTORCTRL_PWM_DUTY_STOP 0
+#define CFG_MOTORCTRL_PWM_DUTY_MIN 30
+#define CFG_MOTORCTRL_PWM_DUTY_MAX 245
 #define CFG_MOTORCTRL_PWM_DUTY_HALF 128
 #define CFG_MOTORCTRL_PWM_DUTY_DELTA (-1)
 
@@ -40,7 +46,6 @@
 #endif
 
 #endif
-
 #define CFG_USE_BCDPOT 1
 #ifdef CFG_USE_BCDPOT
 #define CFG_BCDPOT_PIN_NUMBER 4
@@ -54,8 +59,8 @@
 
 //#define CFG_USE_STEPPER 1
 #ifdef CFG_USE_STEPPER
-/* Sanyo Denki funciona mejor a 5V con corrientes de 0.126 A, step angle 0.8 (200 steps x revolution) */
-/* zapp automation funciona a 3.8V, corrientes (teóricas) 0,67 A, step angle 0.8 (200 steps x revolution) */
+/* Sanyo Denki funciona mejor a 5V con corrientes de 0.126 A, step angle 0.8 (200 steps x revolution).  La fuente a 5V 2.4A */
+/* zapp automation funciona a 3.8V, corrientes (teï¿½ricas) 0,67 A, step angle 0.8 (200 steps x revolution) */
 #define CFG_STEP_X_REVOLUTION 200 // para el zapp automation // 200 para el sanyo denki // 400 para el grande 
 #define CFG_STEP_X_RPM 200 // para el zapp automation // 200 para el sanyo denki
 #define CFG_STEP_IN1_PIN 14
@@ -71,8 +76,8 @@
 #define CFG_ACCELSTEPPER_POS 2000                     // 2000 para zapp (arbitrario)
 #define CFG_ACCELSTEPPER_ACCEL 3000.0  // 1000 para zapp  // 2000 a 4000 para sanyo denki
 
-#define CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR (0.6)  // 0.3 para zapp  // 0.6 para Sanyo Denki
-#define CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET (860.0)  // 550.0 para zapp // 860 para Sanyo Denki
+#define CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR (0.6)  // 0.3 para zapp  // 0.6 para Sanyo Denki La fuente a 5V 2.4A 
+#define CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET (860.0)  // 550.0 para zapp // 860 para Sanyo Denki 
 
 #endif
 

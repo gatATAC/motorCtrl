@@ -14,7 +14,7 @@ extern TM1638 module;
 #include <Stepper.h>
 
 // inicializa la libreria 'stepper' en los pines configurados
-Stepper myStepper(CFG_STEP_X_REVOLUTION,
+Stepper myStepper(CFG_STEP_X_REVOLUTION,  La fuente a 5V 2.4A 
   CFG_STEP_IN1_PIN, CFG_STEP_IN2_PIN, CFG_STEP_IN3_PIN, CFG_STEP_IN4_PIN);
 #endif
 

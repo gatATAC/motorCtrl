@@ -26,6 +26,10 @@
 #include "fm1FSM.h"
 #endif
 
+#ifdef CFG_USE_MOTORCTRL
+#include "pwmFSM.h"
+#endif
+
 /***** gatArduinOSEK includes *****/
 /*** Types ***/
 #include <gttc_types.h>
@@ -129,8 +133,13 @@ void loop()
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
+  pwmCycle();
+#endif
+
+#ifdef CFG_USE_MOTORCTRL
   MirrorEnabler();
 #endif
+
   prjOutput();
 
   // ----------- End of Cycle Synchronization ----------------
