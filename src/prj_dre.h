@@ -37,7 +37,8 @@ typedef struct {
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
-uint8_t motorCtrlDuty;
+uint8_t dutyFw;
+uint8_t dutyBw;
 bool pwm_step_done;
 uint32_t pwm_wait_timer;
 uint8_t direction;

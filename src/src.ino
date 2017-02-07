@@ -23,7 +23,7 @@
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
-#include "pwmFSM.h"
+#include "fm1FSM.h"
 #endif
 
 /***** gatArduinOSEK includes *****/
@@ -129,7 +129,7 @@ void loop()
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
-  pwmCycle();
+  MirrorEnabler();
 #endif
   prjOutput();
 

@@ -15,12 +15,9 @@
 #define CFG_MAX_TIMER 20000000L
 //#define CFG_USE_RGB_LEDS 1
 
-#define CFG_USE_MOTORCTRL 1
 #ifdef CFG_USE_MOTORCTRL
 
 #define CFG_MOTORCTRL_DIR_QUIET 0
-#define CFG_MOTORCTRL_DIR_FW 1
-#define CFG_MOTORCTRL_DIR_BW 2
 
 #define CFG_MOTORCTRL_IN3_PIN 8
 #define CFG_MOTORCTRL_IN4_PIN 7
@@ -30,9 +27,6 @@
 #define CFG_MOTORCTRL_WAIT_TIME_BEFORE 1000000L
 #define CFG_MOTORCTRL_WAIT_TIME_AFTER 1000000L
 #define CFG_MOTORCTRL_PWM_INCR_TIME 20000L
-#define CFG_MOTORCTRL_PWM_DUTY_STOP 0
-#define CFG_MOTORCTRL_PWM_DUTY_MIN 30
-#define CFG_MOTORCTRL_PWM_DUTY_MAX 245
 #define CFG_MOTORCTRL_PWM_DUTY_HALF 128
 #define CFG_MOTORCTRL_PWM_DUTY_DELTA (-1)
 
@@ -61,7 +55,7 @@
 //#define CFG_USE_STEPPER 1
 #ifdef CFG_USE_STEPPER
 /* Sanyo Denki funciona mejor a 5V con corrientes de 0.126 A, step angle 0.8 (200 steps x revolution) */
-/* zapp automation funciona a 3.8V, corrientes (teÃ³ricas) 0,67 A, step angle 0.8 (200 steps x revolution) */
+/* zapp automation funciona a 3.8V, corrientes (teóricas) 0,67 A, step angle 0.8 (200 steps x revolution) */
 #define CFG_STEP_X_REVOLUTION 200 // para el zapp automation // 200 para el sanyo denki // 400 para el grande 
 #define CFG_STEP_X_RPM 200 // para el zapp automation // 200 para el sanyo denki
 #define CFG_STEP_IN1_PIN 14
