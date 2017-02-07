@@ -7,8 +7,21 @@
 
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>
-
 extern TM1638 module;
+#endif
+
+#ifdef CFG_USE_STEPPER
+#include <Stepper.h>
+
+// inicializa la libreria 'stepper' en los pines configurados
+Stepper myStepper(CFG_STEP_X_REVOLUTION,
+  CFG_STEP_IN1_PIN, CFG_STEP_IN2_PIN, CFG_STEP_IN3_PIN, CFG_STEP_IN4_PIN);
+#endif
+
+#ifdef CFG_USE_ACCELSTEPPER
+#include <AccelStepper.h>
+
+AccelStepper stepper1(AccelStepper::FULL4WIRE, 16, 17, 18, 19);
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
@@ -23,6 +36,12 @@ void processMotorCtrl(void){
   } else {
     digitalWrite (CFG_MOTORCTRL_IN4_PIN, LOW);
   }
+  if (dre.motorCtrlDuty>0){
+    digitalWrite(CFG_LED_STATUS,HIGH);
+  } else {
+    digitalWrite(CFG_LED_STATUS,LOW);
+  }
+  //dre.motorCtrlDuty = 0;
   analogWrite(CFG_MOTORCTRL_PWM_PIN,dre.motorCtrlDuty);
 }
 #endif
@@ -33,8 +52,17 @@ void prjOutputInit(void){
   analogWrite(greenLightPin,dre.greenLight);
   analogWrite(blueLightPin,dre.blueLight);
 #endif
+
+#ifdef CFG_USE_STEPPER
+myStepper.setSpeed(CFG_STEP_X_RPM);
+#endif
+
+#ifdef CFG_USE_ACCELSTEPPER
+    stepper1.setAcceleration(CFG_ACCELSTEPPER_ACCEL);  // 1000 para zapp  // 4000 para sanyo denki
+#endif
+
 #ifdef CFG_USE_MOTORCTRL
-  analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
+  //analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
   processMotorCtrl();
 #endif
 }
@@ -174,6 +202,49 @@ void prjOutput(void){
 #endif
 #ifdef CFG_USE_MOTORCTRL
   processMotorCtrl();
-  analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
+  //analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
 #endif
+
+#ifdef CFG_USE_STEPPER
+  // Damos x pasos vueltas
+myStepper.step(10);
+#endif
+
+#ifdef CFG_USE_ACCELSTEPPER
+    long dist;
+    bool stopped=false;
+
+  dre.maxSpeed=(dre.sliderA*CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR) + CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
+  stepper1.setMaxSpeed(dre.maxSpeed);
+  if (dre.stepper1status==CFG_ACCELSTEPPER_STATUS_QUIET){
+    stepper1.moveTo(dre.currentTarget);
+    dre.stepper1status=CFG_ACCELSTEPPER_STATUS_MOVING;
+  } else {
+    dist=stepper1.distanceToGo();
+    if (dist<10 && dist > -10){
+      Serial.printf("dist: %d\n",dist);
+      if (dist == 0) {
+        //stepper1.moveTo(-stepper1.currentPosition());
+        dre.stepper1status=CFG_ACCELSTEPPER_STATUS_QUIET;
+        dre.currentTarget=-dre.currentTarget;
+        stepper1.disableOutputs();
+      } else {
+        if (!dre.endswitch1){
+          stepper1.run();
+        } else {
+          stepper1.disableOutputs();
+        }
+      }
+    } else {
+      if (!dre.endswitch1){
+        stepper1.run();
+      } else {
+        stepper1.disableOutputs();
+      }
+    }
+  }
+#endif
+  if (!dre.endswitch1) {
+    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA, dre.sliderB);
+  }
 }

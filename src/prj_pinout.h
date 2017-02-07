@@ -10,6 +10,7 @@
 #ifndef CFG_USE_TM1638
 extern const uint8_t ledPin[];
 extern const uint8_t buttonPin[];
+extern const uint8_t potPin[];
 #endif
 
 #ifdef CFG_USE_RPI

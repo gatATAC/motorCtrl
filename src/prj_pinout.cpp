@@ -22,9 +22,29 @@ const uint8_t blueLightPin = 6;
 #endif
 #endif
 
+#ifdef CFG_USE_BCDPOT
+  const uint8_t potPin[]={9,10,11,12};
+#endif
+
 void pinoutInit(void){
 
 uint8_t i;
+#ifdef CFG_USE_BCDPOT
+  for (i=0;i<CFG_BCDPOT_PIN_NUMBER;i++){
+    // initialize the pushbutton pin as an input:
+    pinMode(potPin[i], INPUT_PULLUP);
+  }
+#endif
+
+#ifdef CFG_USE_ENDSWITCH_1
+    pinMode(CFG_ENDSWITCH1_PIN, INPUT_PULLUP);
+#endif
+
+#ifdef CFG_USE_SLIDER
+  pinMode(CFG_SLIDER_DTB_PIN,INPUT);
+  pinMode(CFG_SLIDER_DTA_PIN,INPUT);
+#endif
+
 #ifdef CFG_USE_BUTTONS
   for (i=0;i<NUM_BUTTONS;i++){
     // initialize the pushbutton pin as an input:
@@ -57,6 +77,7 @@ uint8_t i;
 #ifdef CFG_USE_MOTORCTRL
 
 #ifdef CFG_USE_TEENSY
+pinMode(CFG_LED_STATUS, OUTPUT);
 analogWriteFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_FREQUENCY);
 analogWriteFrequency(CFG_MOTORCTRL_DEBUGPWM_PIN, CFG_MOTORCTRL_FREQUENCY);
 #else

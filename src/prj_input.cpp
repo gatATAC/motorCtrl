@@ -15,8 +15,9 @@ void prjInputInit(void){
 }
 
 void prjInput(void){
-#ifdef CFG_USE_RPI
   uint8_t i;
+
+#ifdef CFG_USE_RPI
 #ifdef CFG_USE_TM1638
   byte keys = module.getButtons();
 #endif
@@ -32,5 +33,19 @@ void prjInput(void){
   }
 #endif
 
-  
+#ifdef CFG_USE_BCDPOT
+  for (i=0;i<CFG_BCDPOT_PIN_NUMBER;i++){
+    dre.potState[i] = !digitalRead(potPin[i]);
+  }
+#endif
+
+#ifdef CFG_USE_SLIDER
+  dre.sliderB=analogRead(CFG_SLIDER_DTB_PIN);
+  dre.sliderA=analogRead(CFG_SLIDER_DTA_PIN);
+#endif
+
+#ifdef CFG_USE_ENDSWITCH_1
+  dre.endswitch1=digitalRead(CFG_ENDSWITCH1_PIN);
+#endif
+
 }

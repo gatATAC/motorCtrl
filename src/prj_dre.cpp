@@ -18,4 +18,14 @@ void dreInit(void){
   dre.direction=CFG_MOTORCTRL_DIR_QUIET;
   dre.last_direction=dre.direction;
 #endif
+
+#ifdef CFG_USE_ACCELSTEPPER
+  dre.stepper1status=CFG_ACCELSTEPPER_STATUS_QUIET;
+  dre.currentTarget=CFG_ACCELSTEPPER_POS;
+  dre.maxSpeed=0.0;
+#endif
+
+#ifdef CFG_USE_ENDSWITCH_1
+  dre.endswitch1=false;
+#endif
 }

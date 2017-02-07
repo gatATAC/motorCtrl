@@ -43,6 +43,21 @@ uint32_t pwm_wait_timer;
 uint8_t direction;
 uint8_t last_direction;
 #endif
+
+  uint8_t potState[CFG_BCDPOT_PIN_NUMBER];         // variable for reading the pushbutton status
+  uint16_t sliderB;
+  uint16_t sliderA;
+
+#ifdef CFG_USE_ACCELSTEPPER
+  bool stepper1status;
+  long currentTarget;
+  float maxSpeed;
+#endif  
+
+#ifdef CFG_USE_ENDSWITCH_1
+  bool endswitch1;
+#endif
+
 }
 t_dre;
 

@@ -131,7 +131,6 @@ void loop()
 #ifdef CFG_USE_MOTORCTRL
   pwmCycle();
 #endif
-
   prjOutput();
 
   // ----------- End of Cycle Synchronization ----------------
