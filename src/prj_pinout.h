@@ -8,8 +8,15 @@
 #include "prj_output.h"
 
 #ifndef CFG_USE_TM1638
-extern const uint8_t ledPin[];
+#ifdef CFG_USE_BUTTONS
 extern const uint8_t buttonPin[];
+#endif
+#ifdef CFG_USE_LEDS
+extern const uint8_t ledPin[];
+#endif
+#endif
+
+#ifdef CFG_USE_BCDPOT
 extern const uint8_t potPin[];
 #endif
 

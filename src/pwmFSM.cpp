@@ -1,3 +1,5 @@
+#include "prj_cfg.h"
+#ifdef CFG_USE_MOTORCTRL
 /* ['Common headers' begin (DON'T REMOVE THIS LINE!)] */
 #include "pwmFSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
@@ -340,3 +342,4 @@ void pwmCycle(  )
     }
 }
 /* ['pwmCycle' end (DON'T REMOVE THIS LINE!)] */
+#endif

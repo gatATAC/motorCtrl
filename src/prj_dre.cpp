@@ -7,6 +7,7 @@
 t_dre dre;
 
 void dreInit(void){
+  
 #ifdef CFG_USE_RPI
   uint8_t i;
   for (i=0;i<NUM_LEDS;i++){
@@ -14,6 +15,7 @@ void dreInit(void){
   }
   dre.rpiStatus = RPI_STATUS_UNKNOWN;
 #endif
+
 #ifdef CFG_USE_MOTORCTRL
   dre.direction=CFG_MOTORCTRL_DIR_QUIET;
   dre.last_direction=dre.direction;
@@ -27,5 +29,9 @@ void dreInit(void){
 
 #ifdef CFG_USE_ENDSWITCH_1
   dre.endswitch1=false;
+#endif
+
+#ifdef CFG_USE_ENDSWITCH_2
+  dre.endswitch2=false;
 #endif
 }

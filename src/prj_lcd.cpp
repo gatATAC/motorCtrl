@@ -1,5 +1,5 @@
-#ifdef CFG_USE_RPI
-
+#include "prj_cfg.h"
+#ifdef CFG_USE_LCD
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 
@@ -7,9 +7,9 @@
 #include "prj_cfg.h"
 
 //extern LiquidCrystal lcd;
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);           // select the pins used on the LCD panel
+LiquidCrystal lcd(CFG_LCD_RS_PIN, CFG_LCD_ENB_PIN, CFG_LCD_D4_PIN,CFG_LCD_D5_PIN, CFG_LCD_D6_PIN, CFG_LCD_D7_PIN);           // select the pins used on the LCD panel
 
-#ifdef CFG_USE_I2C
+#ifdef CFG_USE_RPI
 const char *rpiStatusStrings[] = {".UNKNOWN","....INIT","...READY","SHUTDOWN",".....OFF"};
 #endif
 
@@ -30,7 +30,7 @@ void prj_lcd_display_message(uint8_t pos, uint8_t line, char *msg){
 }
 
 int read_LCD_buttons(){               // read the buttons
-    adc_key_in = analogRead(0);       // read the value from the sensor
+    adc_key_in = analogRead(CFG_LCD_KEYB_PIN);       // read the value from the sensor
 
     // my buttons when read are centered at these valies: 0, 144, 329, 504, 741
     // we add approx 50 to those values and check to see if we are close
@@ -38,52 +38,55 @@ int read_LCD_buttons(){               // read the buttons
 
     if (adc_key_in > 1000) return btnNONE;
 
-/*
+
     // For V1.1 comment the other threshold and use the one above:
     if (adc_key_in < 50)   return btnRIGHT;
     if (adc_key_in < 250)  return btnUP;
     if (adc_key_in < 450)  return btnDOWN;
     if (adc_key_in < 650)  return btnLEFT;
-    if (adc_key_in < 850)  return btnSELECT;  */
+    if (adc_key_in < 850)  return btnSELECT; 
 
    // For V1.0 us this threshold
-
+/*
      if (adc_key_in < 50)   return btnRIGHT;
      if (adc_key_in < 195)  return btnUP;
      if (adc_key_in < 380)  return btnDOWN;
      if (adc_key_in < 555)  return btnLEFT;
-     if (adc_key_in < 790)  return btnSELECT;
+     if (adc_key_in < 790)  return btnSELECT; */
 
     return btnNONE;                // when all others fail, return this.
 }
 
-#ifdef CFG_USE_I2C
+#ifdef CFG_USE_RPI
 uint8_t last_rpiStatus=RPI_STATUS_UNKNOWN;
 #endif
 
 void prj_lcd_setup(void){
    lcd.begin(16, 2);               // start the library
    lcd.setCursor(0,0);             // set the LCD cursor   position
-#ifdef CFG_USE_I2C
+
+#ifdef CFG_USE_RPI
    lcd.print("RPiStat.");  // print a simple message on the LCD
    lcd.print(rpiStatusStrings[dre.rpiStatus]);
 #else
-  lcd.print("Welcome...");
+  //lcd.print("Welcome 2...");
 #endif
+
 }
 
 void prj_lcd_process(void){
    //lcd.setCursor(9,1);             // move cursor to second line "1" and 9 spaces over
    //lcd.print(millis()/1000);       // display seconds elapsed since power-up
    //prj_lcd_display_message(6,1,"hola caracola");
+/*
    uint8_t i;
 
    for (i=0;i<NUM_BUTTONS;i++){
      lcd.setCursor(7+i,1);
      lcd.print(dre.buttonState[i]);
    }
-
-#ifdef CFG_USE_I2C
+*/
+#ifdef CFG_USE_RPI
   lcd.setCursor(8,0);
   if (last_rpiStatus!=dre.rpiStatus){
     lcd.print(rpiStatusStrings[dre.rpiStatus]);
@@ -91,9 +94,9 @@ void prj_lcd_process(void){
   }
 #endif
 
+#ifdef CFG_TEST_BUTTONS
   lcd.setCursor(0,1);             // move to the begining of the second line
   lcd_key = read_LCD_buttons();   // read the buttons
-
   switch (lcd_key){               // depending on which button was pushed, we perform an action
 
        case btnRIGHT:{             //  push button "RIGHT" and show the word on the screen
@@ -121,7 +124,6 @@ void prj_lcd_process(void){
              break;
        }
    }
+#endif
 }
-
-
 #endif

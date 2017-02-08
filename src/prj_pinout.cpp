@@ -23,7 +23,7 @@ const uint8_t blueLightPin = 6;
 #endif
 
 #ifdef CFG_USE_BCDPOT
-  const uint8_t potPin[]={9,10,11,12};
+  const uint8_t potPin[]={CFG_BCDPOT_PIN1,CFG_BCDPOT_PIN2,CFG_BCDPOT_PIN3,CFG_BCDPOT_PIN4};
 #endif
 
 void pinoutInit(void){
@@ -37,12 +37,18 @@ uint8_t i;
 #endif
 
 #ifdef CFG_USE_ENDSWITCH_1
-    pinMode(CFG_ENDSWITCH1_PIN, INPUT_PULLUP);
+    pinMode(CFG_ENDSWITCH_1_PIN, INPUT_PULLUP);
+#endif
+
+#ifdef CFG_USE_ENDSWITCH_2
+    pinMode(CFG_ENDSWITCH_2_PIN, INPUT_PULLUP);
 #endif
 
 #ifdef CFG_USE_SLIDER
-  pinMode(CFG_SLIDER_DTB_PIN,INPUT);
   pinMode(CFG_SLIDER_DTA_PIN,INPUT);
+#ifdef CFG_USE_SLIDER_DTB
+  pinMode(CFG_SLIDER_DTB_PIN,INPUT);
+#endif
 #endif
 
 #ifdef CFG_USE_BUTTONS
@@ -79,7 +85,9 @@ uint8_t i;
 #ifdef CFG_USE_TEENSY
 pinMode(CFG_LED_STATUS, OUTPUT);
 analogWriteFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_FREQUENCY);
+#ifdef CFG_MOTORCTRL_DEBUGPWM_PIN
 analogWriteFrequency(CFG_MOTORCTRL_DEBUGPWM_PIN, CFG_MOTORCTRL_FREQUENCY);
+#endif
 #else
 // Set pin 6's PWM frequency to 61 Hz (31250/1024 = 61)
 setPwmFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_PWM_DIV);
@@ -87,7 +95,9 @@ setPwmFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_PWM_DIV);
 setPwmFrequency(CFG_MOTORCTRL_DEBUGPWM_PIN, CFG_MOTORCTRL_PWM_DIV);
 #endif
 pinMode (CFG_MOTORCTRL_PWM_PIN, OUTPUT);
+#ifdef CFG_MOTORCTRL_DEBUGPWM_PIN
 pinMode (CFG_MOTORCTRL_DEBUGPWM_PIN, OUTPUT);
+#endif
 pinMode (CFG_MOTORCTRL_IN3_PIN, OUTPUT);
 pinMode (CFG_MOTORCTRL_IN4_PIN, OUTPUT);
 

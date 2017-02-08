@@ -54,8 +54,8 @@
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>
 
-// define a module on data pin 8, clock pin 9 and strobe pin 7
-TM1638 module(11, 2, 12);
+// define a module on data pin 11, clock pin 2 and strobe pin 12
+TM1638 module(CFG_TM1638_DATA_PIN, CFG_TM1638_CLOCK_PIN, CFG_TM1638_STROBE_PIN);
 #endif
 
 #ifdef CFG_USE_I2C
@@ -74,20 +74,40 @@ TM1638 module(11, 2, 12);
 /***** Setup & Startup functions *****/
 
 void setup() {
+
+  ////////////// Platform init
   timerSetCycleTime(CYCLE_TIME_IN_MICROS);
+
+  ////////////// DRE init
   dreInit();
+
+  ////////////// Pinout init
   pinoutInit();
+
+  ////////////// Input init
   prjInputInit();
 
+  ////////////// FSM init
 #ifdef CFG_USE_RGB_LEDS
   rgbCycle();
 #endif
 
+#ifdef CFG_USE_MOTORCTRL
+  pwmCycle();
+#endif
+
+#ifdef CFG_USE_MOTORCTRL
+  MirrorEnabler();
+#endif
+
+  ////////////// Output Init
   prjOutputInit();
-#ifndef CFG_USE_I2C
+
+  ////////////// Comms init 
   // initialize serial communication at 115200 bits per second:
   Serial.begin(115200);
-#else
+
+#ifdef CFG_USE_I2C
   // initialize i2c as slave
   Wire.begin(SLAVE_ADDRESS);
 
@@ -96,6 +116,7 @@ void setup() {
   Wire.onRequest(sendI2cData);
 #endif
 
+  ////////////// Displays init 
 #ifdef CFG_USE_LCD
   prj_lcd_setup();
 #endif
@@ -110,6 +131,7 @@ void loop()
 {
   // ----------- Functionality ----------------
 
+  ////////////// Input task 
   prjInput();
 
 #ifdef CFG_USE_RPI
@@ -123,10 +145,15 @@ void loop()
   ttyCmdHandle(3);
 #endif
 
+#endif
+
+////////////// Display task 
 #ifdef CFG_USE_LCD
   prj_lcd_process();
 #endif
-#endif
+
+
+  ////////////// FSM tasks
 
 #ifdef CFG_USE_RGB_LEDS
   rgbCycle();
@@ -140,10 +167,8 @@ void loop()
   MirrorEnabler();
 #endif
 
-  prjOutput();
-
   // ----------- End of Cycle Synchronization ----------------
-
+#if 1
   // Now the microcontroller will loose time until the end of cycle sincronization time expires
   boolean timSync=timerSync();
   while(timSync==false){
@@ -161,4 +186,9 @@ void loop()
     // timerSync returns true when the end of cycle syncronization time expired.
     timSync=timerSync();
   }
+#endif  
+
+  ////////////// Output task 
+  prjOutput();
+
 }

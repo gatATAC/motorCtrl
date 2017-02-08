@@ -22,11 +22,12 @@
 typedef struct {
 
   /*** Input ***/
-#ifdef CFG_USE_RPI
   /** Led statuses **/
   uint8_t ledState[NUM_LEDS];             // ledState used to set the LED
   /** Button statuses **/
   uint8_t buttonState[NUM_BUTTONS];         // variable for reading the pushbutton status
+
+#ifdef CFG_USE_RPI
   uint8_t rpiStatus;
 #endif
 
@@ -44,9 +45,16 @@ uint8_t direction;
 uint8_t last_direction;
 #endif
 
+#ifdef CFG_USE_BCDPOT
   uint8_t potState[CFG_BCDPOT_PIN_NUMBER];         // variable for reading the pushbutton status
-  uint16_t sliderB;
+#endif
+
+#ifdef CFG_USE_SLIDER
   uint16_t sliderA;
+#ifdef CFG_USE_SLIDER_DTB
+  uint16_t sliderB;
+#endif  
+#endif  
 
 #ifdef CFG_USE_ACCELSTEPPER
   bool stepper1status;
@@ -57,7 +65,9 @@ uint8_t last_direction;
 #ifdef CFG_USE_ENDSWITCH_1
   bool endswitch1;
 #endif
-
+#ifdef CFG_USE_ENDSWITCH_2
+  bool endswitch2;
+#endif
 }
 t_dre;
 

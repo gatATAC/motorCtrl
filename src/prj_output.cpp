@@ -18,10 +18,15 @@ Stepper myStepper(CFG_STEP_X_REVOLUTION,  La fuente a 5V 2.4A
   CFG_STEP_IN1_PIN, CFG_STEP_IN2_PIN, CFG_STEP_IN3_PIN, CFG_STEP_IN4_PIN);
 #endif
 
+#ifdef CFG_USE_LCD
+#include <LiquidCrystal.h>
+#include "prj_lcd.h"
+#endif
+
 #ifdef CFG_USE_ACCELSTEPPER
 #include <AccelStepper.h>
 
-AccelStepper stepper1(AccelStepper::FULL4WIRE, 16, 17, 18, 19);
+AccelStepper stepper1(AccelStepper::FULL4WIRE, CFG_ACCELSTEPPER_IN1_PIN, CFG_ACCELSTEPPER_IN2_PIN, CFG_ACCELSTEPPER_IN3_PIN, CFG_ACCELSTEPPER_IN4_PIN);
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
@@ -161,6 +166,9 @@ void handleRPiStatusPin(void){
 
 #endif
 
+char buf[17];
+uint8_t counter=0;
+
 void prjOutput(void){
 #ifdef CFG_USE_RPI
   uint8_t i;
@@ -212,9 +220,13 @@ myStepper.step(10);
 
 #ifdef CFG_USE_ACCELSTEPPER
     long dist;
-    bool stopped=false;
+    bool stopped = false;
 
-  dre.maxSpeed=(dre.sliderA*CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR) + CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
+#ifdef CFG_USE_SLIDER
+  dre.maxSpeed = (dre.sliderA*CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR) + CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
+#else
+  dre.maxSpeed = CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
+#endif  
   stepper1.setMaxSpeed(dre.maxSpeed);
   if (dre.stepper1status==CFG_ACCELSTEPPER_STATUS_QUIET){
     stepper1.moveTo(dre.currentTarget);
@@ -229,22 +241,55 @@ myStepper.step(10);
         dre.currentTarget=-dre.currentTarget;
         stepper1.disableOutputs();
       } else {
-        if (!dre.endswitch1){
+        if (!dre.endswitch1 && dre.endswitch2){
           stepper1.run();
         } else {
           stepper1.disableOutputs();
         }
       }
     } else {
-      if (!dre.endswitch1){
+        if (!dre.endswitch1 && dre.endswitch2){
         stepper1.run();
       } else {
         stepper1.disableOutputs();
       }
     }
   }
-#endif
-  if (!dre.endswitch1) {
-    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA, dre.sliderB);
+
+#define USE_LCD
+#ifdef USE_LCD
+  if (counter>=100){
+    counter=0;
+    lcd.setCursor(0,1);
+    lcd.print(dre.endswitch1);
+  } else {
+    if (counter==25){
+      lcd.setCursor(0,0);
+      sprintf(buf,"%04d", int(dre.maxSpeed));
+      lcd.print(buf);
+//      sprintf(buf,"%04d %0+5d %+05d", int(dre.maxSpeed), stepper1.targetPosition(),stepper1.currentPosition());
+    } else {
+      if (counter==50){
+        sprintf(buf," %0+5d", stepper1.targetPosition());
+        lcd.print(buf);
+      } else {
+        if (counter == 75){
+          sprintf(buf," %0+5d", stepper1.currentPosition());
+          lcd.print(buf);
+        } else {
+          if (counter==90) {
+          }
+        }
+      }
+    }
+    counter++;
   }
+#endif
+#endif
+   
+//  if (!dre.endswitch1) {
+//    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA, dre.sliderB);
+//    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA);
+//    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d pot %d %d %d %d slide %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA);
+//  }
 }
