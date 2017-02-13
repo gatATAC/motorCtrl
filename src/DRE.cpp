@@ -72,9 +72,9 @@ pinMode(PORT_downReqDI, INPUT_PULLUP);
 void setup_pwmMirrorAction(void){
 #ifndef _PWM_RES_SET_
 #define _PWM_RES_SET_
-analogWriteResolution(CFG_PWM_RESOLUTION);
+//analogWriteResolution(CFG_PWM_RESOLUTION);
 #endif
-analogWriteFrequency(PORT_pwmMirrorAction, PORT_pwmMirrorAction_FREQ);
+//analogWriteFrequency(PORT_pwmMirrorAction, PORT_pwmMirrorAction_FREQ);
 };
 
 

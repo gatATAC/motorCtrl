@@ -6,7 +6,7 @@
 #define CFG_USE_TEENSY 1
 //#define CFG_USE_RPI 1
 
-#define CYCLE_TIME_IN_MICROS 2000L
+#define CYCLE_TIME_IN_MICROS 4000L
 #define CYCLE_SECURITY_TIME_MICROS 100L
 #define CFG_MAX_TIMER 20000000L
 
@@ -47,19 +47,18 @@
 #endif
 
 //// TM1638 or buttons and leds
-//#define CFG_USE_TM1638 1
+#define CFG_USE_TM1638 1
 #ifdef CFG_USE_TM1638
-// define a module on data pin 11, clock pin 2 and strobe pin 12
-#define CFG_TM1638_DATA_PIN 0
-#define CFG_TM1638_CLOCK_PIN 1
-#define CFG_TM1638_STROBE_PIN 2
+#define CFG_TM1638_DATA_PIN 8
+#define CFG_TM1638_CLOCK_PIN 9
+#define CFG_TM1638_STROBE_PIN 10
 #else
 //#define CFG_USE_LEDS 1
 //#define CFG_USE_BUTTONS 1
 #endif
 
 //// LCD
-#define CFG_USE_LCD 1
+//#define CFG_USE_LCD 1
 #ifdef CFG_USE_LCD
 #ifdef CFG_USE_TM1638
 #error "Not possible to use LCD and TM1638"
@@ -80,7 +79,7 @@
 //#define CFG_USE_RGB_LEDS 1
 
 //// DC MOTOR CONTROL
-//#define CFG_USE_MOTORCTRL 1
+#define CFG_USE_MOTORCTRL 1
 #ifdef CFG_USE_MOTORCTRL
 
 #define CFG_MOTORCTRL_DIR_QUIET 0
