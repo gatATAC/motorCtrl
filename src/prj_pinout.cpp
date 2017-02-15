@@ -5,8 +5,13 @@
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>
 extern TM1638 module;
+#else
+#ifdef CFG_USE_LEDS
 const uint8_t ledPin[]={13,12,11,10};
+#endif
+#ifdef CFG_USE_BUTTONS
 const uint8_t buttonPin[]={2,3,4,5};
+#endif
 #endif
 
 #ifdef CFG_USE_RGB_LEDS
@@ -63,7 +68,7 @@ uint8_t i;
   pinMode(LED_RPI_STATUS, OUTPUT);
 #endif
 
-#ifdef CFG_USE_TM1638
+#ifdef CFG_USE_TM16382
   module.setDisplayToDecNumber(101010, 0);
 #else
 #ifdef CFG_USE_LEDS
@@ -83,10 +88,9 @@ uint8_t i;
 #ifdef CFG_USE_MOTORCTRL
 
 #ifdef CFG_USE_TEENSY
-pinMode(CFG_LED_STATUS, OUTPUT);
-analogWriteFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_FREQUENCY);
+//analogWriteFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_FREQUENCY);
 #ifdef CFG_MOTORCTRL_DEBUGPWM_PIN
-analogWriteFrequency(CFG_MOTORCTRL_DEBUGPWM_PIN, CFG_MOTORCTRL_FREQUENCY);
+//analogWriteFrequency(CFG_MOTORCTRL_DEBUGPWM_PIN, CFG_MOTORCTRL_FREQUENCY);
 #endif
 #else
 // Set pin 6's PWM frequency to 61 Hz (31250/1024 = 61)

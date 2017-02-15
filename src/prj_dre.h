@@ -27,6 +27,10 @@ typedef struct {
   /** Button statuses **/
   uint8_t buttonState[NUM_BUTTONS];         // variable for reading the pushbutton status
 
+#ifdef CFG_USE_TM1638
+  byte keys;
+#endif
+
 #ifdef CFG_USE_RPI
   uint8_t rpiStatus;
 #endif

@@ -168,38 +168,37 @@ void handleRPiStatusPin(void){
 
 char buf[17];
 uint8_t counter=0;
-
+uint16_t ledMask=0x0000;
 void prjOutput(void){
-#ifdef CFG_USE_RPI
+
+  Serial.println("ledmask!");
+  counter=0;
+
   uint8_t i;
+  ledMask=0x0000;
   for (i=0;i<NUM_LEDS;i++){
+    if(dre.buttonState[i]) {
+      dre.ledState[i]=2;
+    } else {
+      dre.ledState[i]=0;
+    }
     if (dre.ledState[i]>0){
-#ifdef CFG_USE_TM1638
+#ifdef CFG_USE_TM16382
       if (dre.ledState[i]>1){
-        module.setLED(TM1638_COLOR_RED, i);
+        ledMask |= (0x0100 << i);
       }
       else {
-        module.setLED(TM1638_COLOR_GREEN, i);
+        ledMask |= (0x0100 << i);
       }
-#else
-#ifdef CFG_USE_LEDS
-      digitalWrite(ledPin[i],HIGH);
-#endif
 #endif
     }
-    else {
-#ifdef CFG_USE_TM1638
-      module.setLED(TM1638_COLOR_NONE, i);
-#else
-#ifdef CFG_USE_LEDS
-      digitalWrite(ledPin[i],LOW);
-#endif
-#endif
-    }
-#ifdef CFG_USE_TM1638
-    module.setDisplayToDecNumber(CYCLE_TIME_MICROS-busyMicros, 0);
-#endif
   }
+#ifdef CFG_USE_TM1638
+    module.setDisplayToDecNumber(CYCLE_TIME_MICROS, 0);
+    module.setLEDs(ledMask);
+#endif
+
+#ifdef CFG_USE_RPI  
   handleRPiStatusPin();
 #endif
 
@@ -256,8 +255,7 @@ myStepper.step(10);
     }
   }
 
-#define USE_LCD
-#ifdef USE_LCD
+#ifdef CFG_USE_LCD
   if (counter>=100){
     counter=0;
     lcd.setCursor(0,1);
@@ -292,4 +290,6 @@ myStepper.step(10);
 //    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA);
 //    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d pot %d %d %d %d slide %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA);
 //  }
+
+
 }

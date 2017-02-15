@@ -19,18 +19,13 @@ void prjInput(void){
 
 #ifdef CFG_USE_TM1638
   byte keys = module.getButtons();
+  for (i=0;i<NUM_BUTTONS;i++){
+    dre.buttonState[i] = (keys & (0x01<<i))>0;
+  }
+  module.setLEDs(((keys & 0xF0) << 8) | (keys & 0xF));
 #endif
 
-  for (i=0;i<NUM_BUTTONS;i++){
-#ifdef CFG_USE_TM1638
-    dre.buttonState[i] = (keys & (0x01<<i))>0;
-#else
-#ifdef CFG_USE_BUTTONS
-    // Buttons status read
-    dre.buttonState[0] = digitalRead(buttonPin[i]);
-#endif
-#endif
-  }
+
 
 #ifdef CFG_USE_BCDPOT
   for (i=0;i<CFG_BCDPOT_PIN_NUMBER;i++){
