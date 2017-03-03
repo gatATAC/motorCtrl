@@ -2,7 +2,7 @@
 #include "prj_input.h"
 #include "prj_pinout.h"
 #include "prj_dre.h"
-#include "Arduino.h"
+#include <Arduino.h>
 
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>

@@ -7,6 +7,7 @@
 #include "prj_cfg.h"
 #include "prj_input.h"
 #include "prj_output.h"
+#include "ProjectTypes.h"
 
 #ifdef CFG_USE_RPI
 

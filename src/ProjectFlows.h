@@ -1,6 +1,9 @@
 #ifndef _PROJECT_FLOWS_H
 #define _PROJECT_FLOWS_H
 
+#include "ProjectTypes.h"
+#include "ProjectFunctions.h"
+
 #define CFG_PWM_RESOLUTION 12
 #define PORT_pwmMirrorAction_FREQ 100
 

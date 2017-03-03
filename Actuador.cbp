@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Actuador" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Actuador" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="../dummylib" />
+					<Add directory="../libraries/gatArduinOSEK" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Actuador" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp" />
+		<Unit filename="src/DRE.cpp" />
+		<Unit filename="src/DRE.h" />
+		<Unit filename="src/ProjectFlows.h" />
+		<Unit filename="src/ProjectFunctions.h" />
+		<Unit filename="src/ProjectTypes.h" />
+		<Unit filename="src/fm1FSM.cpp" />
+		<Unit filename="src/fm1FSM.h" />
+		<Unit filename="src/fm1FSM_CI.cpp" />
+		<Unit filename="src/fm1FSM_CI.h" />
+		<Unit filename="src/prj_cfg.h" />
+		<Unit filename="src/prj_dre.cpp" />
+		<Unit filename="src/prj_dre.h" />
+		<Unit filename="src/prj_input.cpp" />
+		<Unit filename="src/prj_input.h" />
+		<Unit filename="src/prj_lcd.cpp" />
+		<Unit filename="src/prj_lcd.h" />
+		<Unit filename="src/prj_output.cpp" />
+		<Unit filename="src/prj_output.h" />
+		<Unit filename="src/prj_pinout.cpp" />
+		<Unit filename="src/prj_pinout.h" />
+		<Unit filename="src/prj_tty_brcast.cpp" />
+		<Unit filename="src/prj_tty_brcast.h" />
+		<Unit filename="src/prj_tty_cmds.cpp" />
+		<Unit filename="src/prj_tty_cmds.h" />
+		<Unit filename="src/pwmFSM.cpp" />
+		<Unit filename="src/pwmFSM.h" />
+		<Unit filename="src/pwmFSM_CI.cpp" />
+		<Unit filename="src/pwmFSM_CI.h" />
+		<Unit filename="src/rgbFSM_CI.h" />
+		<Unit filename="src/src.ino" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

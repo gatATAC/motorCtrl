@@ -1,6 +1,7 @@
 #include "gttc_types.h"
 #include "prj_cfg.h"
 #include "prj_pinout.h"
+#include <Arduino.h>
 
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>

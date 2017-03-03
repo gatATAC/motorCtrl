@@ -3,7 +3,7 @@
 #include "prj_output.h"
 #include "prj_pinout.h"
 #include "prj_dre.h"
-#include "Arduino.h"
+#include <Arduino.h>
 
 #ifdef CFG_USE_TM1638
 #include <TM1638.h>
@@ -14,7 +14,7 @@ extern TM1638 module;
 #include <Stepper.h>
 
 // inicializa la libreria 'stepper' en los pines configurados
-Stepper myStepper(CFG_STEP_X_REVOLUTION,  La fuente a 5V 2.4A 
+Stepper myStepper(CFG_STEP_X_REVOLUTION,  La fuente a 5V 2.4A
   CFG_STEP_IN1_PIN, CFG_STEP_IN2_PIN, CFG_STEP_IN3_PIN, CFG_STEP_IN4_PIN);
 #endif
 
@@ -198,7 +198,7 @@ void prjOutput(void){
     module.setLEDs(ledMask);
 #endif
 
-#ifdef CFG_USE_RPI  
+#ifdef CFG_USE_RPI
   handleRPiStatusPin();
 #endif
 
@@ -225,7 +225,7 @@ myStepper.step(10);
   dre.maxSpeed = (dre.sliderA*CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR) + CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
 #else
   dre.maxSpeed = CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
-#endif  
+#endif
   stepper1.setMaxSpeed(dre.maxSpeed);
   if (dre.stepper1status==CFG_ACCELSTEPPER_STATUS_QUIET){
     stepper1.moveTo(dre.currentTarget);
@@ -284,7 +284,7 @@ myStepper.step(10);
   }
 #endif
 #endif
-   
+
 //  if (!dre.endswitch1) {
 //    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA, dre.sliderB);
 //    Serial.printf("maxspeed %f pos %d tgt %d tgt2 %d dist %d switch %d pot %d %d %d %d slide %d\n",dre.maxSpeed, stepper1.currentPosition(),dre.currentTarget, stepper1.targetPosition(), dist, dre.endswitch1, dre.potState[3],dre.potState[2],dre.potState[1],dre.potState[0],dre.sliderA);

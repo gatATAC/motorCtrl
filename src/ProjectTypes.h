@@ -2,7 +2,8 @@
 #define _PROJECT_TYPES_H
 
 #include <Arduino.h>
-#include "gttc_types.h"
+#include <gttc_types.h>
+
 #include "prj_cfg.h"
 #include "prj_input.h"
 #include "prj_output.h"
