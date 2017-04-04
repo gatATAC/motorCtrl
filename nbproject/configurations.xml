@@ -62,7 +62,7 @@
   </logicalFolder>
   <projectmakefile>nb-Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -81,6 +81,8 @@
             <pElem>../libraries/gatArduinOSEK</pElem>
           </incDir>
         </ccTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -141,7 +143,7 @@
       <item path="src/rgbFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
-    <conf name="Release" type="1">
+    <conf name="Release" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -168,6 +170,8 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>

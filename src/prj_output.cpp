@@ -194,7 +194,7 @@ void prjOutput(void){
     }
   }
 #ifdef CFG_USE_TM1638
-    module.setDisplayToDecNumber(CYCLE_TIME_MICROS, 0);
+    module.setDisplayToDecNumber(CYCLE_TIME_IN_MICROS, 0);
     module.setLEDs(ledMask);
 #endif
 
@@ -244,15 +244,15 @@ myStepper.step(10);
           stepper1.run();
         } else {
           stepper1.disableOutputs();
-        }
+      }
       }
     } else {
         if (!dre.endswitch1 && dre.endswitch2){
         stepper1.run();
       } else {
         stepper1.disableOutputs();
-      }
     }
+  }
   }
 
 #ifdef CFG_USE_LCD

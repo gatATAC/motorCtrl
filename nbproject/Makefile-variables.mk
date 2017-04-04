@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=actuador
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/actuador
+CND_ARTIFACT_NAME_Debug=libactuador.a
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/libactuador.a
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=actuador.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/actuador.tar
+CND_PACKAGE_NAME_Debug=Actuador.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/Actuador.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=actuador
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/actuador
+CND_ARTIFACT_NAME_Release=libactuador.a
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/libactuador.a
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=actuador.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/actuador.tar
+CND_PACKAGE_NAME_Release=Actuador.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/Actuador.tar
 #
 # include compiler specific variables
 #

@@ -6,8 +6,6 @@
 
 /* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Generic code items' declarations */
-typedef bool t_upreqacq;
-
 extern t_upreqacq upReqAcq;
 extern t_downreqacq downReqAcq;
 extern BOOL upReqDI;
